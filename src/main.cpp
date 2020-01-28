@@ -2,8 +2,8 @@
 #include <core/valuemodel.hpp>
 
 int main() {
-    core::ValueModel<std::string> v;
-    v.setValue("Hello world !");
+    core::ValueModel<int> v;
+    v.setValue(33);
     std::cout << v.evaluate() << std::endl;
 
     //new comment

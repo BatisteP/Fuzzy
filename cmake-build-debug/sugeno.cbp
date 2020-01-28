@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/bp71/CLionProjects/FuzzyProject/header/fuzzy/And.hpp">
+			<Option target="sugeno"/>
+		</Unit>
+		<Unit filename="C:/Users/bp71/CLionProjects/FuzzyProject/header/fuzzy/AndMin.hpp">
+			<Option target="sugeno"/>
+		</Unit>
 		<Unit filename="C:/Users/bp71/CLionProjects/FuzzyProject/src/main.cpp">
 			<Option target="sugeno"/>
 		</Unit>

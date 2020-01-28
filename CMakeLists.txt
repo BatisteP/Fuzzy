@@ -68,6 +68,8 @@ file(GLOB_RECURSE FRAMEWORK_HEADERS CMAKE_CONFIGURE_DEPENDS
         ${FRAMEWORK_INCLUDE_DIR}/fuzzy/*.hpp
         )
 
+message(${FRAMEWORK_HEADERS})
+
 if ("${FRAMEWORK_HEADERS}" STREQUAL "")
     message("-- Fatal error - cannot access to headers")
 else("${FRAMEWORK_HEADERS}" STREQUAL "")
@@ -93,4 +95,4 @@ endif("${FRAMEWORK_SRCS}" STREQUAL "")
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Adding executable
-add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS})
+add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS} header/fuzzy/And.hpp header/fuzzy/AndMin.hpp)
