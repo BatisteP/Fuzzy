@@ -1,0 +1,3 @@
+C:/Users/Hethsron/Downloads/Framework/cmake-build-debug/CMakeFiles/sugeno.dir
+C:/Users/Hethsron/Downloads/Framework/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Hethsron/Downloads/Framework/cmake-build-debug/CMakeFiles/rebuild_cache.dir

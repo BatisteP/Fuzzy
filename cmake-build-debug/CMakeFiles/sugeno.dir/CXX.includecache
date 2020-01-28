@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../header/core/expression.hpp
+iostream
+-
+
+../header/core/valuemodel.hpp
+iostream
+-
+core/expression.hpp
+-
+
+C:/Users/Hethsron/Downloads/Framework/src/main.cpp
+iostream
+-
+core/valuemodel.hpp
+-
+
