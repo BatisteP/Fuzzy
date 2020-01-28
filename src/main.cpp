@@ -5,8 +5,4 @@ int main() {
     core::ValueModel<int> v;
     v.setValue(33);
     std::cout << v.evaluate() << std::endl;
-
-    //new comment
-
-
 }

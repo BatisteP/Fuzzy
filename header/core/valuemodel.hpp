@@ -13,6 +13,7 @@ namespace core {
 
         virtual T evaluate() const;
         virtual void setValue(T);
+
     private:
         T value;
     };

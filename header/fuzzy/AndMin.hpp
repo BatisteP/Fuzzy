@@ -1,19 +1,18 @@
-//
-// Created by bp71 on 28/01/2020.
-//
+#ifndef ANDMIN_HPP
+#define ANDMIN_HPP
 
-#ifndef SUGENO_ANDMAX_HPP
-#define SUGENO_ANDMAX_HPP
 #include <iostream>
-#include <core/binaryexpression.hpp>
-namespace fuzzy{
-    template <class T>
-    class AndMax : public And<T>{
-    public:
-        T evaluate(Expression<T>*, Expression<T>*) const;
+#include <fuzzy/and.hpp>
 
+namespace fuzzy {
+    template <class T>
+    class AndMin : public And<T>{
+    public:
+        T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
     };
-    T AndMin<T>::evaluate(Expression<T>* l, Expression<T>* r) const {
+
+    template <class T>
+    T AndMin<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
         if (_left == nullptr) {
             throw exceptions::NullPointerException<T>("null left operand");
         }
@@ -21,13 +20,11 @@ namespace fuzzy{
         if (_right == nullptr) {
             throw exceptions::NullPointerException<T>("null right operand");
         }
-        T lvalue = l -> evaluate();
-        T rvalue = r -> evaluate();
+
+        T lvalue = l->evaluate();
+        T rvalue = r->evaluate();
         return (lvalue < rvalue ? lvalue : rvalue);
     }
 }
 
-
-
-#endif //SUGENO_AND_HPP
-#endif //SUGENO_ANDMAX_HPP
+#endif // ! ANDMIN_HPP
