@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <core/unaryexpression.hpp>
-#include "../src/core/unaryexpression.cpp"
 
 namespace core {
     template <class T>
