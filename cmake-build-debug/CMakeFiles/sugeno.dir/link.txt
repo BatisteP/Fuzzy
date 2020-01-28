@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.3.3\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\sugeno.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\sugeno.dir/objects.a @CMakeFiles\sugeno.dir\objects1.rsp
-C:\MinGW\bin\g++.exe  -Wall -Wextra -pedantic -Werror -g   -Wl,--whole-archive CMakeFiles\sugeno.dir/objects.a -Wl,--no-whole-archive  -o ..\bin\sugeno.exe -Wl,--out-implib,..\bin\libsugeno.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\sugeno.dir\linklibs.rsp
