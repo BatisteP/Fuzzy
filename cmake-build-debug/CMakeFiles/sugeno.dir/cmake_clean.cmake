@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "../bin/libsugeno.dll.a"
   "../bin/sugeno.exe"
   "../bin/sugeno.exe.manifest"
-  "../bin/sugeno.lib"
   "../bin/sugeno.pdb"
   "CMakeFiles/sugeno.dir/src/main.cpp.obj"
 )

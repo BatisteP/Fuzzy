@@ -1,7 +1,9 @@
-#ifndef OR_HPP
-#define OR_HPP
+//
+// Created by bp71 on 29/01/2020.
+//
 
-#include <iostream>
+#ifndef SUGENO_OR_HPP
+#define SUGENO_OR_HPP
 #include <core/binaryexpression.hpp>
 
 namespace fuzzy {
@@ -10,5 +12,4 @@ namespace fuzzy {
 
     };
 }
-
-#endif // ! OR_HPP
+#endif //SUGENO_OR_HPP

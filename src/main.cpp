@@ -1,22 +1,36 @@
 #include <iostream>
 #include <core/valuemodel.hpp>
 #include <core/binaryexpressionmodel.hpp>
+#include <core/unaryexpressionmodel.hpp>
 #include <fuzzy/andmin.hpp>
+#include <fuzzy/andmult.hpp>
+#include <fuzzy/isTriangle.hpp>
+
 
 int main() {
-    core::ValueModel<int>* v1 = new core::ValueModel<int>();
-    core::ValueModel<int>* v2 = new core::ValueModel<int>();
-    v1->setValue(33);
-    v2->setValue(25);
-    std::cout << "Value Model 1 : " << v1->evaluate() << std::endl;
-    std::cout << "Value Model 2 : " << v2->evaluate() << std::endl;
+    core::ValueModel<float> v1;
+    v1.setValue(33);
+    core::ValueModel<float> v2;
+    v2.setValue(3);
+    core::ValueModel<float> v3;
+    v3.setValue(6);
+    core::BinaryExpressionModel<float> bModel;
+    core::UnaryExpressionModel<float> uModel;
+    fuzzy::AndMin<float> andMinOp;
+    fuzzy::AndMult<float> andMaxOp;
+    std ::cout  << "test opérateurs" << std :: endl;
+    std ::cout  << "triangle (2,5,12), evaluate avec 3, puis avec 6 " << std :: endl;
+    fuzzy::IsTriangle<float> triangle(2.0,5,12.0);
+    uModel.setOperator(&triangle);
+    //unarymodel test
+    std ::cout  << uModel.evaluate(&v2) << std :: endl;
+    std ::cout  << uModel.evaluate(&v3) << std :: endl;
+    std ::cout  << "andMult 3,6 " << std :: endl;
+//    bModel.setOperator()
+    std ::cout  << "andMin 3,6 " << std :: endl;
+    std ::cout  << "OrPlus 3,6 " << std :: endl;
+    std ::cout  << "OrMax 3,6 " << std :: endl;
+    std::cout << v1.evaluate() << std::endl;
 
-    core::BinaryExpressionModel<int> b;
-    fuzzy::AndMin<int>* andMin = new fuzzy::AndMin<int>();
 
-    b.setLeft(v1);
-    b.setRight(v2);
-    b.setOperator(andMin);
-
-    std::cout << "Evaluate : " << b.evaluate() << std::endl;
 }
