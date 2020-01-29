@@ -1,11 +1,9 @@
-//
-// Created by bp71 on 29/01/2020.
-//
+#ifndef ISTRIANGLE_HPP
+#define ISTRIANGLE_HPP
 
-#ifndef SUGENO_ISTRIANGLE_HPP
-#define SUGENO_ISTRIANGLE_HPP
 #include <core/expression.hpp>
 #include <fuzzy/is.hpp>
+
 namespace fuzzy {
     template <class T>
     class IsTriangle : public Is<T>{
@@ -37,4 +35,4 @@ namespace fuzzy {
 
     }
 }
-#endif //SUGENO_ISTRIANGLE_HPP
+#endif // ! ISTRIANGLE_HPP

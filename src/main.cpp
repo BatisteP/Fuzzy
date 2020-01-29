@@ -4,7 +4,7 @@
 #include <core/unaryexpressionmodel.hpp>
 #include <fuzzy/andmin.hpp>
 #include <fuzzy/andmult.hpp>
-#include <fuzzy/isTriangle.hpp>
+#include <fuzzy/istriangle.hpp>
 
 
 int main() {

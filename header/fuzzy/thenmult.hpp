@@ -25,7 +25,7 @@ namespace fuzzy {
         T rvalue = r->evaluate();
 
         // TODO : THEN MULT
-       return null;
+       return (lvalue * rvalue);
     }
 }
 
