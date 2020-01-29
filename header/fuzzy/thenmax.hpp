@@ -1,18 +1,18 @@
-#ifndef ORMAX_HPP
-#define ORMAX_HPP
+#ifndef THENMAX_HPP
+#define THENMAX_HPP
 
 #include <iostream>
-#include <fuzzy/or.hpp>
+#include <fuzzy/then.hpp>
 
 namespace fuzzy {
     template <class T>
-    class OrMax : public Or<T> {
+    class ThenMax : public Then<T> {
     public:
         T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
     };
 
     template <class T>
-    T OrMax<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+    T ThenMax<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
         if (l == nullptr) {
             throw exceptions::NullPointerException<T>("null left operand");
         }
@@ -24,9 +24,9 @@ namespace fuzzy {
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
 
-        // TODO : L OR R =  MAX(L, R)
-        return (lvalue > rvalue ? lvalue : rvalue);
+        // TODO : THEN MAX
+       return null;
     }
 }
 
-#endif // ! ORMAX_HPP
+#endif // ! THENMAX_HPP

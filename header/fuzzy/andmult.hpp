@@ -7,11 +7,12 @@
 namespace fuzzy {
     template <class T>
     class AndMult : public And<T> {
+    public:
         T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
     };
 
     template <class T>
-    T AndMin<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+    T AndMult<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
         if (l == nullptr) {
             throw exceptions::NullPointerException<T>("null left operand");
         }
