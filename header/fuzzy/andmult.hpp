@@ -19,10 +19,19 @@ namespace fuzzy {
 
     template <class T>
     T AndMult<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+        if (l == nullptr) {
+            throw exceptions::NullPointerException<T>("null left operand");
+        }
+
+        if (r == nullptr) {
+            throw exceptions::NullPointerException<T>("null right operand");
+        }
 
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
-        return (lvalue * rvalue );
+
+        // TODO : L MULT R =  L * R
+        return (lvalue * rvalue);
     }
 }
 #endif //SUGENO_ANDMULT_HPP

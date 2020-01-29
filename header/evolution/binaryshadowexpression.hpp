@@ -9,6 +9,7 @@ namespace evolution {
     class BinaryShadowExpression : public BinaryExpression<T>  {
     public:
         BinaryShadowExpression();
+        BinaryShadowExpression(BinaryExpression<T>* );
         virtual ~BinaryShadowExpression();
 
         virtual T evaluate(Expression<T>*, Expression<T>*) const;
@@ -22,13 +23,11 @@ namespace evolution {
     BinaryShadowExpression<T>::BinaryShadowExpression() : BinaryExpression<T>() {}
 
     template <class T>
-    BinaryShadowExpression<T>::~BinaryShadowExpression() {
-        if (target != nullptr) {
-            delete target;              /*!< Release the address pointed to by the pointer */
-        }
+    BinaryShadowExpression<T>::BinaryShadowExpression(BinaryExpression<T>* _target)
+        : BinaryExpression<T>(), target(_target) {}
 
-        target = nullptr;               /*!< Delete pointer */
-    }
+    template <class T>
+    BinaryShadowExpression<T>::~BinaryShadowExpression() {}
 
     template <class T>
     T BinaryShadowExpression<T>::evaluate(Expression<T> * l, Expression<T> * r) const {

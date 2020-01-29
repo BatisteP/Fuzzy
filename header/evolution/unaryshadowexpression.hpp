@@ -9,6 +9,7 @@ namespace evolution {
     class UnaryShadowExpression : public UnaryExpression<T> {
     public:
         UnaryShadowExpression();
+        UnaryShadowExpression(UnaryExpression<T>*);
         virtual ~UnaryShadowExpression();
 
         virtual T evaluate(Expression<T>* );
@@ -20,6 +21,10 @@ namespace evolution {
 
     template <class T>
     UnaryShadowExpression<T>::UnaryShadowExpression() : UnaryExpression<T>() {}
+
+    template <class T>
+    UnaryShadowExpression<T>::UnaryShadowExpression(UnaryExpression <T> * _target)
+        : UnaryExpression<T>(), target(_target) {}
 
     template <class T>
     UnaryShadowExpression<T>::~UnaryShadowExpression() {
