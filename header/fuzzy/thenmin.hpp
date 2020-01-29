@@ -24,8 +24,8 @@ namespace fuzzy {
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
 
-        // TODO : THEN MIN
-        return null;
+        // TODO : L AND R =  MIN(L, R)
+        return (lvalue < rvalue ? lvalue : rvalue);
     }
 }
 
