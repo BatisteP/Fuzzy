@@ -21,4 +21,4 @@ namespace fuzzy {
         return (lvalue >= rvalue ? lvalue : rvalue);
     }
 }
-#endif //SUGENO_ORMAX_HPP
+#endif // ! ORMAX_HPP

@@ -1,9 +1,5 @@
-//
-// Created by bp71 on 29/01/2020.
-//
-
-#ifndef SUGENO_IS_HPP
-#define SUGENO_IS_HPP
+#ifndef IS_HPP
+#define IS_HPP
 #include <core/unaryexpression.hpp>
 
 namespace fuzzy {
@@ -12,4 +8,4 @@ namespace fuzzy {
 
     };
 }
-#endif //SUGENO_IS_HPP
+#endif // ! IS_HPP
