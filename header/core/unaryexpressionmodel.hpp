@@ -9,6 +9,8 @@ namespace core {
     class UnaryExpressionModel : public Expression<T>, public UnaryExpression<T> {
     public:
         UnaryExpressionModel();
+        explicit UnaryExpressionModel(Expression<T>*);
+        UnaryExpressionModel(Expression<T>*, UnaryExpression<T>*);
         virtual ~UnaryExpressionModel();
 
         virtual T evaluate() const;
@@ -23,21 +25,18 @@ namespace core {
 
     template <class T>
     UnaryExpressionModel<T>::UnaryExpressionModel()
-            : Expression<T>(), UnaryExpression<T>() {}
+            : Expression<T>(), UnaryExpression<T>(), _operand(nullptr) {}
 
     template <class T>
-    UnaryExpressionModel<T>::~UnaryExpressionModel() {
-        if (_operand != nullptr) {
-            delete _operand;            /*!< Release the address pointed to by the pointer */
-        }
+    UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* operand)
+            : Expression<T>(), UnaryExpression<T>(), _operand(operand), _operator(nullptr) {}
 
-        if (_operator != nullptr) {
-            delete _operator;           /*!< Release the address pointed to by the pointer */
-        }
+    template <class T>
+    UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* operand, UnaryExpression<T>* oper)
+            : Expression<T>(), UnaryExpression<T>(), _operand(operand), _operator(oper) {}
 
-        _operand = nullptr;             /*!< Delete pointer */
-        _operator = nullptr;            /*!< Delete pointer */
-    }
+    template <class T>
+    UnaryExpressionModel<T>::~UnaryExpressionModel() = default;
 
     template <class T>
     T UnaryExpressionModel<T>::evaluate() const {

@@ -9,6 +9,8 @@ namespace core {
     class BinaryExpressionModel : public Expression<T>, public BinaryExpression<T> {
     public:
         BinaryExpressionModel();
+        explicit BinaryExpressionModel(Expression<T>*, Expression<T>*);
+        BinaryExpressionModel(Expression<T>*, Expression<T>*, BinaryExpression<T>*);
         virtual ~BinaryExpressionModel();
 
         virtual T evaluate() const;
@@ -24,26 +26,18 @@ namespace core {
     };
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel() {}
+    BinaryExpressionModel<T>::BinaryExpressionModel() = default;
 
     template <class T>
-    BinaryExpressionModel<T>::~BinaryExpressionModel() {
-        if (_left != nullptr) {
-            delete _left;               /*!< Release the address pointed to by the pointer */
-        }
+    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right)
+            : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(nullptr) {}
 
-        if (_right != nullptr) {
-            delete _right;              /*!< Release the address pointed to by the pointer */
-        }
+    template <class T>
+    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right, BinaryExpression<T>* oper)
+            : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(oper) {}
 
-        if (_operator != nullptr) {
-            delete _operator;           /*!< Release the address pointed to by the pointer */
-        }
-
-        _left = nullptr;                /*!< Delete pointer */
-        _right = nullptr;               /*!< Delete pointer */
-        _operator = nullptr;            /*!< Delete pointer */
-    }
+    template <class T>
+    BinaryExpressionModel<T>::~BinaryExpressionModel() = default;
 
     template <class T>
     T BinaryExpressionModel<T>::evaluate() const {
