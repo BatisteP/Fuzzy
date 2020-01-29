@@ -8,7 +8,6 @@
 
 
 int main() {
-
     core::ValueModel<float> v1;
     v1.setValue(33);
 

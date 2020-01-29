@@ -78,6 +78,7 @@ file(GLOB_RECURSE FRAMEWORK_HEADERS CMAKE_CONFIGURE_DEPENDS
         ${FRAMEWORK_INCLUDE_DIR}/core/*.hpp
         ${FRAMEWORK_INCLUDE_DIR}/evolution/*.hpp
         ${FRAMEWORK_INCLUDE_DIR}/exceptions/*.hpp
+        ${FRAMEWORK_INCLUDE_DIR}/factory/*.hpp
         ${FRAMEWORK_INCLUDE_DIR}/fuzzy/*.hpp
         )
 
