@@ -18,8 +18,8 @@ namespace fuzzy {
 
         T lvalue = l -> evaluate();
         T rvalue = r -> evaluate();
-        //pas sur
-        return (lvalue + rvalue );
+        //pas sûr
+        return (lvalue + rvalue);
     }
 }
 #endif //SUGENO_ORPLUS_HPP
