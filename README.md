@@ -2,7 +2,7 @@
 
 <div id="triangle head">
 	<h3>Triangular function :</h3>
-	<h5>defined by a lower limit a, an upper limit b, and a value m, where a < m < b</h5>
+	<h5>Defined by a lower limit a, an upper limit b, and a value m, where a < m < b</h5>
 </div>
 <div id="triangle">
 	<p align="center">
@@ -13,7 +13,7 @@
 
 <div id="trapezoidal head">
 	<h3>Trapezoidal function :</h3>
-	<h5>defined by a lower limit a, an upper limit d, a lower support limit b, and an upper support limit c, where a < b < c < d</h5>
+	<h5>Defined by a lower limit a, an upper limit d, a lower support limit b, and an upper support limit c, where a < b < c < d</h5>
 </div>
 <div id="trapezoidal">
 	<p align="center">
@@ -29,7 +29,7 @@
 <div>
 	<ul>
 		<li>
-			<h3>R-functions: with parameters a = b = - ∞ </h3>
+			<h5>R-functions: with parameters a = b = - ∞ </h5>
 			<div id="R-functions">
 				<p align="center">
 				  <img src="doc/assets/img/desctrapR_en.gif" title="Trapezoidal Right function">
@@ -38,7 +38,7 @@
 			</div>
 		</li>
 		<li>
-			<h3>L-Functions: with parameters c = d = + ∞ </h3>
+			<h5>L-Functions: with parameters c = d = + ∞ </h5>
 			<div id="L-Functions">
 				<p align="center">
 				  <img src="doc/assets/img/desctrapL_en.gif" title="Trapezoidal Left function">
