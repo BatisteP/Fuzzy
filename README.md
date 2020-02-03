@@ -60,4 +60,9 @@
 	</p>
 </div>
 
+<div>
+	<h5>For more informations about fuzzy mumbership functions </h5>
+	<a href="http://www.dma.fi.upm.es/recursos/aplicaciones/logica_borrosa/web/fuzzy_inferencia/funpert_en.htm">visit</a>
+</div>
+
 	
