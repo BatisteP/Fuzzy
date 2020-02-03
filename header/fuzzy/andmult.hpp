@@ -1,10 +1,5 @@
-//
-// Created by bp71 on 29/01/2020.
-//
-
-#ifndef SUGENO_ANDMULT_HPP
-#define SUGENO_ANDMULT_HPP
-
+#ifndef ANDMULT_HPP
+#define ANDMULT_HPP
 
 #include <iostream>
 #include <fuzzy/and.hpp>
@@ -30,8 +25,9 @@ namespace fuzzy {
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
 
-        // TODO : L MULT R =  L * R
+        // TODO : L ANDMULT R =  L * R
         return (lvalue * rvalue);
     }
 }
-#endif //SUGENO_ANDMULT_HPP
+
+#endif // ! ANDMULT_HPP

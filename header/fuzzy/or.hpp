@@ -1,6 +1,7 @@
 #ifndef OR_HPP
 #define OR_HPP
 
+#include <iostream>
 #include <core/binaryexpression.hpp>
 
 namespace fuzzy {

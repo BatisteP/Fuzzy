@@ -1,9 +1,7 @@
-//
-// Created by bp71 on 29/01/2020.
-//
+#ifndef ORPLUS_HPP
+#define ORPLUS_HPP
 
-#ifndef SUGENO_ORPLUS_HPP
-#define SUGENO_ORPLUS_HPP
+#include <iostream>
 #include <fuzzy/or.hpp>
 
 namespace fuzzy {
@@ -15,11 +13,20 @@ namespace fuzzy {
 
     template <class T>
     T OrPlus<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+        if (l == nullptr) {
+            throw exceptions::NullPointerException<T>("null left operand");
+        }
 
-        T lvalue = l -> evaluate();
-        T rvalue = r -> evaluate();
-        //pas sûr
-        return (lvalue + rvalue);
+        if (r == nullptr) {
+            throw exceptions::NullPointerException<T>("null right operand");
+        }
+
+        T lvalue = l->evaluate();
+        T rvalue = r->evaluate();
+
+        // TODO : L ORPLUS R =  L + R - (R * L)
+        return (lvalue + rvalue - (lvalue * rvalue));
     }
 }
-#endif //SUGENO_ORPLUS_HPP
+
+#endif // ! ORPLUS_HPP

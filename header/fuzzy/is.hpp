@@ -1,5 +1,7 @@
 #ifndef IS_HPP
 #define IS_HPP
+
+#include <iostream>
 #include <core/unaryexpression.hpp>
 
 namespace fuzzy {

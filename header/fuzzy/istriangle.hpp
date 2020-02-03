@@ -29,7 +29,7 @@ namespace fuzzy {
     template <class T>
     T IsTriangle<T>::evaluate(core::Expression<T>* o) const {
         if (o == nullptr) {
-            throw exceptions::NullPointerException<T>("null target");
+            throw exceptions::NullPointerException<T>("null operand");
         }
 
         T oValue = o->evaluate();

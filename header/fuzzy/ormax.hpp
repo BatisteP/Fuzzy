@@ -1,9 +1,7 @@
-//
-// Created by bp71 on 29/01/2020.
-//
+#ifndef ORMAX_HPP
+#define ORMAX_HPP
 
-#ifndef SUGENO_ORMAX_HPP
-#define SUGENO_ORMAX_HPP
+#include <iostream>
 #include <fuzzy/or.hpp>
 
 namespace fuzzy {
@@ -15,10 +13,20 @@ namespace fuzzy {
 
     template <class T>
     T OrMax<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+        if (l == nullptr) {
+            throw exceptions::NullPointerException<T>("null left operand");
+        }
+
+        if (r == nullptr) {
+            throw exceptions::NullPointerException<T>("null right operand");
+        }
 
         T lvalue = l -> evaluate();
         T rvalue = r -> evaluate();
+
+        // TODO : L ORMAX R =  MAX(L, R)
         return (lvalue >= rvalue ? lvalue : rvalue);
     }
 }
+
 #endif // ! ORMAX_HPP
