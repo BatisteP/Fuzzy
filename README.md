@@ -5,8 +5,8 @@
 </div>
 <div id="triangle">
 	<p align="center">
-	  <img align="left" src="doc/assets/img/desctri_en.gif" title="Triangular function">
-	  <img align="right" src="doc/assets/img/funtri.jpg" alt="Triangular">
+	  <img src="doc/assets/img/desctri_en.gif" title="Triangular function">
+	  <img src="doc/assets/img/funtri.jpg" alt="Triangular">
 	</p>
 </div>
 
@@ -15,8 +15,8 @@
 </div>
 <div id="trapezoidal">
 	<p align="center">
-	  <img align="left" src="doc/assets/img/desctrap_en.gif" title="Trapezoidal function">
-	  <img align="right" src="doc/assets/img/funtrap.jpg" alt="Trapezoidal">
+	  <img src="doc/assets/img/desctrap_en.gif" title="Trapezoidal function">
+	  <img src="doc/assets/img/funtrap.jpg" alt="Trapezoidal">
 	</p>
 </div>
 
