@@ -49,6 +49,15 @@
 	</ul>
 </div>
 
-
+<div id="gaussian head">
+	<h3>Gaussian function:</h3>
+	<h5>Defined by a central value m and a standard deviation k > 0. The smaller k is, the narrower the “bell” is.</h5>
+</div>
+<div id="gaussian">
+	<p align="center">
+		<img src="doc/assets/img/descgaus.gif" title="Gaussian function">
+	  	<img src="doc/assets/img/fungaus.jpg" alt="Gaussian">
+	</p>
+</div>
 
 	
