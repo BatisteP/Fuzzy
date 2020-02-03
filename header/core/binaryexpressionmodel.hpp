@@ -9,7 +9,7 @@ namespace core {
     class BinaryExpressionModel : public Expression<T>, public BinaryExpression<T> {
     public:
         BinaryExpressionModel();
-        explicit BinaryExpressionModel(Expression<T>*, Expression<T>*);
+        BinaryExpressionModel(Expression<T>*, Expression<T>*);
         BinaryExpressionModel(Expression<T>*, Expression<T>*, BinaryExpression<T>*);
         virtual ~BinaryExpressionModel();
 
@@ -26,7 +26,7 @@ namespace core {
     };
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel() = default;
+    BinaryExpressionModel<T>::BinaryExpressionModel() {};
 
     template <class T>
     BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right)
@@ -37,7 +37,7 @@ namespace core {
             : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(oper) {}
 
     template <class T>
-    BinaryExpressionModel<T>::~BinaryExpressionModel() = default;
+    BinaryExpressionModel<T>::~BinaryExpressionModel() {};
 
     template <class T>
     T BinaryExpressionModel<T>::evaluate() const {
@@ -62,16 +62,28 @@ namespace core {
 
     template <class T>
     void BinaryExpressionModel<T>::setLeft(Expression<T>* o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null left");
+        }
+
         _left = o;
     }
 
     template <class T>
     void BinaryExpressionModel<T>::setRight(Expression<T>* o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null right");
+        }
+
         _right = o;
     }
 
     template <class T>
     void BinaryExpressionModel<T>::setOperator(BinaryExpression<T>* o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null operator");
+        }
+
         _operator = o;
     }
 }

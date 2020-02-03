@@ -40,6 +40,10 @@ namespace evolution {
 
     template <class T>
     void BinaryShadowExpression<T>::setTarget(BinaryExpression<T> * o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null target");
+        }
+
         target = o;
     }
 }

@@ -6,7 +6,6 @@
 #include <fuzzy/andmult.hpp>
 #include <fuzzy/istriangle.hpp>
 
-
 int main() {
     core::ValueModel<float> v1;
     v1.setValue(33);
@@ -36,8 +35,6 @@ int main() {
     std ::cout  << "OrPlus 3,6 " << std :: endl;
     std ::cout  << "OrMax 3,6 " << std :: endl;
     std::cout << v1.evaluate() << std::endl;
-
-
 
     return 0;
 

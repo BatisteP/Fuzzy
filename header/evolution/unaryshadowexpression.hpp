@@ -12,8 +12,8 @@ namespace evolution {
         UnaryShadowExpression(UnaryExpression<T>*);
         virtual ~UnaryShadowExpression();
 
-        virtual T evaluate(Expression<T>* );
-        virtual void setTarget(UnaryExpression<T>* );
+        virtual T evaluate(Expression<T>*);
+        virtual void setTarget(UnaryExpression<T>*);
 
     private:
         UnaryExpression<T>* target;
@@ -27,13 +27,7 @@ namespace evolution {
         : UnaryExpression<T>(), target(_target) {}
 
     template <class T>
-    UnaryShadowExpression<T>::~UnaryShadowExpression() {
-        if (target != nullptr) {
-            delete target;               /*!< Release the address pointed to by the pointer */
-        }
-
-        target = nullptr;               /*!< Delete pointer */
-    }
+    UnaryShadowExpression<T>::~UnaryShadowExpression() {}
 
     template <class T>
     T UnaryShadowExpression<T>::evaluate(Expression<T> * o) {
@@ -46,6 +40,10 @@ namespace evolution {
 
     template <class T>
     void UnaryShadowExpression<T>::setTarget(UnaryExpression<T> * o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null target");
+        }
+
         target = o;
     }
 }

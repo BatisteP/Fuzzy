@@ -23,7 +23,7 @@ namespace core {
     ValueModel<T>::ValueModel() : Expression<T>() {}
 
     template <class T>
-    ValueModel<T>::~ValueModel() = default;
+    ValueModel<T>::~ValueModel() {};
 
     template <class T>
     T ValueModel<T>::evaluate() const {
