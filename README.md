@@ -8,5 +8,3 @@
   <img width="50%" height="50%" src="doc/assets/img/desctri_en.png" title="Triangular function">
   <img width="50%" height="50%" src="doc/assets/img/funtri.png" alt="Triangular">
 </p>
-![alt text](doc/assets/img/desctri_en.png "triangle function")
-![alt text](doc/assets/img/funtri.png "triangle")
