@@ -1,5 +1,9 @@
 ### FUZZY FRAMEWORK
 
+<div id="fuzzy membership functions">
+	<h2>FUZZY MEMBERSHIP FUNCTIONS</h2>
+</div>
+
 <div id="triangle head">
 	<h3>Triangular function :</h3>
 	<h5>Defined by a lower limit a, an upper limit b, and a value m, where a < m < b</h5>
@@ -61,8 +65,10 @@
 </div>
 
 <div>
-	<h5>For more informations about fuzzy mumbership functions </h5>
-	<a href="http://www.dma.fi.upm.es/recursos/aplicaciones/logica_borrosa/web/fuzzy_inferencia/funpert_en.htm">visit</a>
+	<h5>For more informations about fuzzy mumbership functions </h5><a href="http://www.dma.fi.upm.es/recursos/aplicaciones/logica_borrosa/web/fuzzy_inferencia/funpert_en.htm">visit</a>
 </div>
 
+<div id="fuzzy operators">
+	<h2>FUZZY OPERATORS</h2>
+</div>
 	
