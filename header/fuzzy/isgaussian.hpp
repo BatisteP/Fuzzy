@@ -33,7 +33,7 @@ namespace fuzzy {
     void IsGaussian<T>::setDeviation(T _deviation) {
         if (_deviation <= 0) {
             // TODO : if (k <= 0) where k = deviation
-            throw exceptions::StandardDeviationException<T>("Standard deviation lower equal than zero")
+            throw exceptions::StandardDeviationException<T>("Standard deviation lower equal than zero, i.e : k <= 0")
         }
 
         deviation = _deviation;
