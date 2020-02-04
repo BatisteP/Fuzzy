@@ -76,4 +76,36 @@
 <div id="fuzzy operators">
 	<h2>FUZZY OPERATORS</h2>
 </div>
-	
+
+<div id="basic operators head">
+	<h3>Basic operators :</h3>
+	<h5>As in classical logic, in fuzzy logic there are three basic operations on fuzzy sets: union, intersection and complement.</h5>
+</div>
+<div>
+	<ul>
+		<li>
+			<h4>Union : </h4>
+			<h5>Let µA and µB be membership functions that define the fuzzy sets A and B, respectively, on the universe X.</h5>
+			<h5>The union of fuzzy sets A and B is a fuzzy set defined by the membership function:</h5>
+			<div id="union">
+				<p align="center"></p>
+			</div>
+		</li>
+		<li>
+			<h4>Intersection : </h4>
+			<h5>Let µA and µB be membership functions that define the fuzzy sets A y B, respectively, on the universe X.</h5>
+			<h5>The intersection of fuzzy sets A and B is a fuzzy set defined by the membership function:</h5>
+			<div id="intersection">
+				<p align="center"></p>
+			</div>
+		</li>
+		<li>
+			<h4>Complement : </h4>
+			<h5>Let µA be a membership function that defines the fuzzy set A, on the universe X.</h5>
+			<h5>The complement of A is a fuzzy set defined by the membership function:</h5>
+			<div id="union">
+				<p align="center"></p>
+			</div>
+		</li>
+	</ul>
+</div>
