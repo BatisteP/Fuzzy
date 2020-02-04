@@ -31,9 +31,9 @@ namespace fuzzy {
 
     template <class T>
     void IsGaussian<T>::setDeviation(T _deviation) {
+        // TODO : if (k <= 0) where k = deviation launch exception
         if (_deviation <= 0) {
-            // TODO : if (k <= 0) where k = deviation
-            throw exceptions::StandardDeviationException<T>("Standard deviation lower equal than zero, i.e : k <= 0")
+            throw exceptions::StandardDeviationException<T>("Standard deviation lower equal than zero, i.e : deviation <= 0")
         }
 
         deviation = _deviation;
@@ -46,6 +46,7 @@ namespace fuzzy {
 
     template <class T>
     T IsGaussian<T>::evaluate(core::Expression<T> * o) const {
+        // TODO : if operand is a null pointer launch exception
         if (o == nullptr) {
             throw exceptions::NullPointerException<T>("null operand");
         }

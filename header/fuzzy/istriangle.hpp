@@ -47,11 +47,12 @@ namespace fuzzy {
 
     template <class T>
     T IsTriangle<T>::evaluate(core::Expression<T>* o) const {
+        // TODO : if operand is a null pointer launch exception
         if (o == nullptr) {
             throw exceptions::NullPointerException<T>("null operand");
         }
 
-        // TODO : Where a = min < m = mid < b = max
+        // TODO : Where a = min < m = mid < b = max are not met, launch exception
         if (!(min < mid && mid < max)) {
             throw exceptions::TriangleException<T>("Conditions are not met, i.e : min < mid < max");
         }
@@ -59,23 +60,18 @@ namespace fuzzy {
         // TODO : Getting x
         T xValue = o->evaluate();
 
+        // TODO : if (x <= a) or (x >= b)
         if (xValue <= min || xValue >= max) {
-            // TODO : if (x <= a) or (x >= b)
             return 0;
         }
 
+        // TODO : if (x > a) and (x <= m)
         if (xValue > min && xValue <= mid) {
-            // TODO : if (x > a) and (x <= m)
             return ((xValue - min) / (mid - min));
         }
 
-        if (xValue > mid && xValue < max) {
-            // TODO : if (x > m) and (x < b)
-            return ((max - xValue) / (max - mid));
-        }
-
-        //return (xValue < mid ? (xValue - min)/(mid - min) : (max - xValue)/(max - mid));
-        return 0;
+        // TODO : if (x > m) and (x < b)
+        return ((xValue > mid && xValue < max) ? ((max - xValue) / (max - mid)) : 0);
     }
 }
 

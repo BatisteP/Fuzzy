@@ -20,14 +20,14 @@ namespace fuzzy {
 
     private:
         T min;
-        T midleft;
-        T midright;
+        T midLeft;
+        T midRight;
         T max;
     };
 
     template <class T>
-    IsTrapezoidal<T>::IsTrapezoidal(T _min, T _midleft, T _midright, T _max)
-        : min(_min), midleft(_midleft), midright(_midright), max(_max) {}
+    IsTrapezoidal<T>::IsTrapezoidal(T _min, T _midLeft, T _midRight, T _max)
+        : min(_min), midLeft(_midLeft), midRight(_midRight), max(_max) {}
 
     template <class T>
     IsTrapezoidal<T>::~IsTrapezoidal() {}
@@ -38,13 +38,13 @@ namespace fuzzy {
     }
 
     template <class T>
-    void IsTrapezoidal<T>::setMidLeft(T _midleft) {
-        midleft = _midleft;
+    void IsTrapezoidal<T>::setMidLeft(T _midLeft) {
+        midLeft = _midLeft;
     }
 
     template <class T>
-    void IsTrapezoidal<T>::setMidRight(T _midright) {
-        midright = _midright;
+    void IsTrapezoidal<T>::setMidRight(T _midRight) {
+        midRight = _midRight;
     }
 
     template <class T>
@@ -58,35 +58,31 @@ namespace fuzzy {
             throw exceptions::NullPointerException<T>("null operand");
         }
 
-        // TODO : Where a = min < b = midleft < c = midright < d = max
-        if (!(min < midleft && midleft < midright && midright < max)) {
-            throw exceptions::TrapezoidalException<T>("Conditions are not met, i.e : min < midleft < midright < max");
+        // TODO : Where a = min < b = midLeft < c = midRight < d = max are not met, launch exception
+        if (!(min < midLeft && midLeft < midRight && midRight < max)) {
+            throw exceptions::TrapezoidalException<T>("Conditions are not met, i.e : min < midLeft < midRight < max");
         }
 
         // TODO : Getting x
         T xValue = o->evaluate();
 
+        // TODO : if (x < a) or (x > d)
         if (xValue < min || xValue > max) {
-            // TODO : if (x < a) or (x > d)
             return 0;
         }
 
-        if (xValue >= midleft && xValue <= midright) {
-            // TODO : if (x >= b) && (x <= c)
+        // TODO : if (x >= b) and (x <= c)
+        if (xValue >= midLeft && xValue <= midRight) {
             return 1;
         }
 
-        if (xValue >= mid && xValue <= midleft) {
-            // TODO : if (x >= a) && (x <= b)
-            return ((xValue - mid) / (midleft - mid));
+        // TODO : if (x >= a) and (x <= b)
+        if (xValue >= min && xValue <= midLeft) {
+            return ((xValue - min) / (midLeft - min));
         }
 
-        if (xValue >= midright && xValue <= max) {
-            // TODO : if (x >= c) && (x <= d)
-            return ((max - xValue) / (max - midright));
-        }
-
-        return 0;
+        // TODO : if (x >= c) and (x <= d)
+        return ((xValue >= midRight && xValue <= max) ? ((max - xValue) / (max - midRight)) : 0);
     }
 }
 
