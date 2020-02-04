@@ -26,7 +26,7 @@ namespace core {
     };
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel() {};
+    BinaryExpressionModel<T>::BinaryExpressionModel() {}
 
     template <class T>
     BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right)
@@ -37,7 +37,7 @@ namespace core {
             : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(oper) {}
 
     template <class T>
-    BinaryExpressionModel<T>::~BinaryExpressionModel() {};
+    BinaryExpressionModel<T>::~BinaryExpressionModel() {}
 
     template <class T>
     T BinaryExpressionModel<T>::evaluate() const {

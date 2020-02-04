@@ -109,4 +109,4 @@ endif("${FRAMEWORK_SRCS}" STREQUAL "")
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Adding executable
-add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS})
+add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS} header/core/expressionFactory.hpp header/fuzzy/fuzzyFactory.hpp header/fuzzy/not.hpp)

@@ -1,3 +1,0 @@
-C:/Users/bp71/CLionProjects/Fuzzy/cmake-build-debug/CMakeFiles/sugeno.dir
-C:/Users/bp71/CLionProjects/Fuzzy/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/bp71/CLionProjects/Fuzzy/cmake-build-debug/CMakeFiles/rebuild_cache.dir

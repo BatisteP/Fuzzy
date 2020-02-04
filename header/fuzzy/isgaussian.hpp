@@ -60,6 +60,7 @@ namespace fuzzy {
         T xValue = o->evaluate();
 
         // TODO : exp(-(x - m)^2 / 2*k^2)
+        // ça c'est beau
         return (T) exp(-(xValue - average) * (xValue - average) / (2 * deviation * deviation));
     }
 }
