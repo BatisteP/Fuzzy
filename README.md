@@ -115,3 +115,25 @@
 		</li>
 	</ul>
 </div>
+
+<div id="t-conorms head">
+	<h3>t-conorms :</h3>
+	<h5>t-conorms are binary operators that generalize intersection and union operations</h5>
+	<h5>t-conorm is a binary operation S: [0,1] x [0,1] → [0,1] which satisfies the following properties: </h5>
+	<ul>
+		<li>
+			<h5>Commutativity: S(a,b) = S(b,a) </h5>
+		</li>
+		<li>
+			<h5>Associativity: S(a, S(b,c)) = S(S(a,b), c) </h5>
+		</li>
+		<li>
+			<h5>Identity element: S(a,0) = S(0,a) = a </h5>
+		</li>
+		<li>
+			<h5>Monotonicity: if a ≤ c and b ≤ d then S(a,b) ≤ S(c,d)</h5>
+		</li>
+	</ul>
+	<h5>These operators represent the union of two fuzzy sets.</h5>
+	<h5>Some examples of t-conorms are the maximum max(a,b), the probabilístic sum or sum-product sum-prod (a,b) = a+b - a•b and Lukasiewicz W*(a,b)=min(1,a+b).</h5>
+</div>
