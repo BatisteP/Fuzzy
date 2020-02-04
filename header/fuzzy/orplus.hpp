@@ -23,7 +23,7 @@ namespace fuzzy {
 
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
-
+        //source? à demander au prof
         // TODO : L ORPLUS R =  L + R - (R * L)
         return (lvalue + rvalue - (lvalue * rvalue));
     }
