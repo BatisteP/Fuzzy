@@ -88,7 +88,9 @@
 			<h5>Let µA and µB be membership functions that define the fuzzy sets A and B, respectively, on the universe X.</h5>
 			<h5>The union of fuzzy sets A and B is a fuzzy set defined by the membership function:</h5>
 			<div id="union">
-				<p align="center"></p>
+				<p align="center">
+					<img src="doc/assets/img/union.png" title="union operation">
+				</p>
 			</div>
 		</li>
 		<li>
@@ -96,7 +98,9 @@
 			<h5>Let µA and µB be membership functions that define the fuzzy sets A y B, respectively, on the universe X.</h5>
 			<h5>The intersection of fuzzy sets A and B is a fuzzy set defined by the membership function:</h5>
 			<div id="intersection">
-				<p align="center"></p>
+				<p align="center">
+					<img src="doc/assets/img/intersection.png" title="intersection operation">
+				</p>
 			</div>
 		</li>
 		<li>
@@ -104,7 +108,9 @@
 			<h5>Let µA be a membership function that defines the fuzzy set A, on the universe X.</h5>
 			<h5>The complement of A is a fuzzy set defined by the membership function:</h5>
 			<div id="union">
-				<p align="center"></p>
+				<p align="center">
+					<img src="doc/assets/img/complement.png" title="complement operation">
+				</p>
 			</div>
 		</li>
 	</ul>
