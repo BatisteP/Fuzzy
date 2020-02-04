@@ -137,3 +137,13 @@
 	<h5>These operators represent the union of two fuzzy sets.</h5>
 	<h5>Some examples of t-conorms are the maximum max(a,b), the probabilístic sum or sum-product sum-prod (a,b) = a+b - a•b and Lukasiewicz W*(a,b)=min(1,a+b).</h5>
 </div>
+
+<div id="summary head">
+	<h3>Summary of fuzzy operators</h3>
+	<h5>There are : </h5>
+</div>
+<div id="summary">
+	<p align="center">
+		<img src="doc/assets/img/summary.png" title="table of operators">
+	</p>
+</div>
