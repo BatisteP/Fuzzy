@@ -14,8 +14,6 @@ namespace exceptions {
     template <class T>
     NullPointerException<T>::NullPointerException(const std::string& msg) throw()
             : std::runtime_error(msg.c_str()) {}
-
-
 }
 
 #endif // ! NULLPOINTEREXCEPTION_HPP

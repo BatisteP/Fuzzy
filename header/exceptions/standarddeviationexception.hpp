@@ -5,7 +5,6 @@
 #include <exception>
 
 namespace exceptions {
-
     template <class T>
     class StandardDeviationException : public std::runtime_error {
     public:
