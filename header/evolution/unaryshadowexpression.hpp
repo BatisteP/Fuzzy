@@ -6,32 +6,27 @@
 
 namespace evolution {
     template <class T>
-    class UnaryShadowExpression : public UnaryExpression<T> {
+    class UnaryShadowExpression : public core::UnaryExpression<T> {
     public:
-        UnaryShadowExpression();
-        UnaryShadowExpression(UnaryExpression<T>*);
+        UnaryShadowExpression(core::UnaryExpression<T>*);
         virtual ~UnaryShadowExpression();
 
-        virtual T evaluate(Expression<T>*);
-        virtual void setTarget(UnaryExpression<T>*);
+        virtual T evaluate(core::Expression<T>*);
+        virtual void setTarget(core::UnaryExpression<T>*);
 
     private:
-        UnaryExpression<T>* target;
+        core::UnaryExpression<T>* target;
     };
 
     template <class T>
-    UnaryShadowExpression<T>::UnaryShadowExpression()
-        : UnaryExpression<T>(), target(nullptr) {}
-
-    template <class T>
-    UnaryShadowExpression<T>::UnaryShadowExpression(UnaryExpression <T> * _target)
-        : UnaryExpression<T>(), target(_target) {}
+    UnaryShadowExpression<T>::UnaryShadowExpression(core::UnaryExpression <T> * _target)
+        : core::UnaryExpression<T>(), target(_target) {}
 
     template <class T>
     UnaryShadowExpression<T>::~UnaryShadowExpression() {}
 
     template <class T>
-    T UnaryShadowExpression<T>::evaluate(Expression<T> * o) {
+    T UnaryShadowExpression<T>::evaluate(core::Expression<T> * o) {
         if (target == nullptr) {
             throw exceptions::NullPointerException<T>("null target");
         }
@@ -40,7 +35,7 @@ namespace evolution {
     }
 
     template <class T>
-    void UnaryShadowExpression<T>::setTarget(UnaryExpression<T> * o) {
+    void UnaryShadowExpression<T>::setTarget(core::UnaryExpression<T> * o) {
         if (o == nullptr) {
             throw exceptions::NullPointerException<T>("null target");
         }
