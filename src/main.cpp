@@ -15,17 +15,17 @@ int main() {
     v2.setValue(3);
     core::ValueModel<float> v3;
     v3.setValue(6);
-
-    core::BinaryExpressionModel<float> bModel;
-
-    core::UnaryExpressionModel<float> uModel;
     fuzzy::AndMin<float> andMinOp;
     fuzzy::AndMult<float> andMaxOp;
-    evolution::UnaryShadowExpression<float> shadow;
+    fuzzy::IsTriangle<float> triangle(2.0,5,12.0);
+    core::BinaryExpressionModel<float> bModel(&v2,&v3,&andMinOp);
+
+    core::UnaryExpressionModel<float> uModel(&v2,&triangle);
+
 
     std ::cout  << "test opérateurs" << std :: endl;
     std ::cout  << "triangle (2,5,12), evaluate avec 3, puis avec 6 " << std :: endl;
-    fuzzy::IsTriangle<float> triangle(2.0,5,12.0);
+
     uModel.setOperator(&triangle);
     //unarymodel test
     std ::cout  << uModel.evaluate(&v2) << std :: endl;
