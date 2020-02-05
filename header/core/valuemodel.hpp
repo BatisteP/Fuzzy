@@ -15,7 +15,6 @@ namespace core {
         virtual void setValue(T);
 
     private:
-
         T value;
     };
 
