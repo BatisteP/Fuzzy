@@ -8,8 +8,6 @@ namespace core {
     template <class T>
     class UnaryExpressionModel : public Expression<T>, public UnaryExpression<T> {
     public:
-        UnaryExpressionModel();
-        UnaryExpressionModel(Expression<T>*);
         UnaryExpressionModel(Expression<T>*, UnaryExpression<T>*);
         virtual ~UnaryExpressionModel();
 
@@ -22,14 +20,6 @@ namespace core {
         Expression<T>* _operand;
         UnaryExpression<T>* _operator;
     };
-
-    template <class T>
-    UnaryExpressionModel<T>::UnaryExpressionModel()
-            : Expression<T>(), UnaryExpression<T>(), _operand(nullptr), _operator(nullptr) {}
-
-    template <class T>
-    UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* operand)
-            : Expression<T>(), UnaryExpression<T>(), _operand(operand), _operator(nullptr) {}
 
     template <class T>
     UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* operand, UnaryExpression<T>* operators)
