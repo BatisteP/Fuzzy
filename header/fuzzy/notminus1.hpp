@@ -7,6 +7,7 @@
 namespace fuzzy {
     template <class T>
     class NotMinus1 : public Not<T> {
+    public:
         virtual T evaluate(Expression<T>* ) const;
     };
 
