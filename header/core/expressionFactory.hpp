@@ -37,7 +37,11 @@ namespace core{
         while(it != memory.end()) {
             delete *it;
             it++;
+            std::cout << "objet detruit";
         }
+        memory.clear();
+        delete memory;
+
     }
 
     template<class T>

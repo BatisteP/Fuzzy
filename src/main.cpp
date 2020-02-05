@@ -5,6 +5,7 @@
 #include <fuzzy/andmin.hpp>
 #include <fuzzy/andmult.hpp>
 #include <fuzzy/istriangle.hpp>
+#include <evolution/binaryshadowexpression.hpp>
 
 int main() {
     core::ValueModel<float> v1;
@@ -20,7 +21,7 @@ int main() {
     core::UnaryExpressionModel<float> uModel;
     fuzzy::AndMin<float> andMinOp;
     fuzzy::AndMult<float> andMaxOp;
-
+    evolution::UnaryShadowExpression<float> shadow;
 
     std ::cout  << "test opérateurs" << std :: endl;
     std ::cout  << "triangle (2,5,12), evaluate avec 3, puis avec 6 " << std :: endl;

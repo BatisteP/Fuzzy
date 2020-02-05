@@ -6,32 +6,34 @@
 
 namespace evolution {
     template <class T>
-    class BinaryShadowExpression : public BinaryExpression<T>  {
+class BinaryShadowExpression : public core::BinaryExpression<T>  {
     public:
-        BinaryShadowExpression();
-        BinaryShadowExpression(BinaryExpression<T>* );
+
+        BinaryShadowExpression(core::BinaryExpression<T>* );
         virtual ~BinaryShadowExpression();
 
-        virtual T evaluate(Expression<T>*, Expression<T>*) const;
-        virtual void setTarget(BinaryExpression<T>* );
+        virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
+        virtual void setTarget(core::BinaryExpression<T>* );
+
+
 
     private:
-        BinaryExpression<T>* target;
+        core::BinaryExpression<T>* target;
     };
 
     template <class T>
-    BinaryShadowExpression<T>::BinaryShadowExpression()
-        : BinaryExpression<T>(), target(nullptr) {}
+    BinaryShadowExpression<T>::BinaryShadowExpression(core::BinaryExpression<T>* _target)
+        : core::BinaryExpression<T>(), target(_target) {}
 
     template <class T>
-    BinaryShadowExpression<T>::BinaryShadowExpression(BinaryExpression<T>* _target)
-        : BinaryExpression<T>(), target(_target) {}
+    BinaryShadowExpression<T>::~BinaryShadowExpression() {
+       delete target;
+
+    }
+
 
     template <class T>
-    BinaryShadowExpression<T>::~BinaryShadowExpression() {}
-
-    template <class T>
-    T BinaryShadowExpression<T>::evaluate(Expression<T> * l, Expression<T> * r) const {
+    T BinaryShadowExpression<T>::evaluate(core::Expression<T> * l, core::Expression<T> * r) const {
         if (target == nullptr) {
             throw exceptions::NullPointerException<T>("null target");
         }
@@ -40,7 +42,7 @@ namespace evolution {
     }
 
     template <class T>
-    void BinaryShadowExpression<T>::setTarget(BinaryExpression<T> * o) {
+    void BinaryShadowExpression<T>::setTarget(core::BinaryExpression<T> * o) {
         if (o == nullptr) {
             throw exceptions::NullPointerException<T>("null target");
         }
