@@ -6,32 +6,16 @@
 
 namespace exceptions {
     template <class T>
-    class NullPointerException : public std::exception {
+    class NullPointerException : public std::runtime_error {
     public:
-        NullPointerException() throw();
         explicit NullPointerException(const std::string&) throw();
-        virtual ~NullPointerException();
-
-        virtual const char* what() const throw ();
-
-    private:
-        std::string message;
     };
 
     template <class T>
-    NullPointerException<T>::NullPointerException() throw() : std::exception() {}
-
-    template <class T>
     NullPointerException<T>::NullPointerException(const std::string& msg) throw()
-            : std::exception(), message(msg) {}
+            : std::runtime_error(msg.c_str()) {}
 
-    template <class T>
-    NullPointerException<T>::~NullPointerException() {}
 
-    template <class T>
-    const char* NullPointerException<T>::what() const throw() {
-        return message.c_str();
-    }
 }
 
 #endif // ! NULLPOINTEREXCEPTION_HPP
