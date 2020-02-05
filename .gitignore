@@ -1,0 +1,3 @@
+# ignore repertories
+bin/
+.idea/
