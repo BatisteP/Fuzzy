@@ -19,7 +19,7 @@ namespace evolution {
     };
 
     template <class T>
-    UnaryShadowExpression<T>::UnaryShadowExpression(core::UnaryExpression <T> * _target)
+    UnaryShadowExpression<T>::UnaryShadowExpression(core::UnaryExpression<T> * _target)
         : core::UnaryExpression<T>(), target(_target) {}
 
     template <class T>
