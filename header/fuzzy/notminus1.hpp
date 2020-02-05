@@ -8,13 +8,13 @@ namespace fuzzy {
     template <class T>
     class NotMinus1 : public Not<T> {
     public:
-        virtual T evaluate(Expression<T>* ) const;
+        virtual T evaluate(core::Expression<T>* ) const;
     };
 
     template <class T>
-    T NotMinus1<T>::evaluate(Expression <T> * o) const {
+    T NotMinus1<T>::evaluate(core::Expression <T> * o) const {
         if (o == nullptr) {
-            throw exceptions::NullPointerException("null operand");
+            throw exceptions::NullPointerException<T>("null operand");
         }
 
         return (1 - o->evaluate());
