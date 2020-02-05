@@ -30,6 +30,11 @@ namespace fuzzy{
         private:
             evolution::BinaryShadowExpression<T>* theAnd;
             evolution::UnaryShadowExpression<T>* theNot;
+            evolution::UnaryShadowExpression<T>* theIs;
+            evolution::BinaryShadowExpression<T>* theOr;
+            evolution::BinaryShadowExpression<T>* theThen;
+            evolution::BinaryShadowExpression<T>* theAgg;
+            evolution::BinaryShadowExpression<T>* defuzz;
 
 
 
