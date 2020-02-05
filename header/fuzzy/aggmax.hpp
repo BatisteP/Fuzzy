@@ -8,7 +8,7 @@ namespace fuzzy {
     template <class T>
     class AggMax : public Agg<T> {
     public:
-        T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
+        virtual T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
     };
 
     template <class T>
