@@ -8,8 +8,6 @@ namespace core {
     template <class T>
     class BinaryExpressionModel : public Expression<T>, public BinaryExpression<T> {
     public:
-        BinaryExpressionModel();
-        BinaryExpressionModel(Expression<T>*, Expression<T>*);
         BinaryExpressionModel(Expression<T>*, Expression<T>*, BinaryExpression<T>*);
         virtual ~BinaryExpressionModel();
 
@@ -24,13 +22,6 @@ namespace core {
         Expression<T>* _right;
         BinaryExpression<T>* _operator;
     };
-
-    template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel() {}
-
-    template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* l, Expression<T>* r)
-            : Expression<T>(), BinaryExpression<T>(), _left(l), _right(r), _operator(nullptr) {}
 
     template <class T>
     BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* l, Expression<T>* r, BinaryExpression<T>* o)
