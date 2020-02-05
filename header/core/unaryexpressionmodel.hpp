@@ -25,7 +25,7 @@ namespace core {
 
     template <class T>
     UnaryExpressionModel<T>::UnaryExpressionModel()
-            : Expression<T>(), UnaryExpression<T>(), _operand(nullptr) {}
+            : Expression<T>(), UnaryExpression<T>(), _operand(nullptr), _operator(nullptr) {}
 
     template <class T>
     UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* operand)
@@ -43,6 +43,7 @@ namespace core {
         if (_operand == nullptr) {
             throw exceptions::NullPointerException<T>("null operand");
         }
+
         return _operand->evaluate();
     }
 
@@ -51,16 +52,25 @@ namespace core {
         if (_operator == nullptr) {
             throw exceptions::NullPointerException<T>("null operator");
         }
+
         return _operator->evaluate(o);
     }
 
     template <class T>
     void UnaryExpressionModel<T>::setOperand(core::Expression<T>* o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null operand");
+        }
+
         _operand = o;
     }
 
     template <class T>
     void UnaryExpressionModel<T>::setOperator(UnaryExpression<T>* o) {
+        if (o == nullptr) {
+            throw exceptions::NullPointerException<T>("null operator");
+        }
+
         _operator = o;
     }
 }
