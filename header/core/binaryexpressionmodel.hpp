@@ -26,7 +26,7 @@ namespace core {
     };
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel() {};
+    BinaryExpressionModel<T>::BinaryExpressionModel() {}
 
     template <class T>
     BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* l, Expression<T>* r)
