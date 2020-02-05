@@ -8,7 +8,6 @@ namespace evolution {
     template <class T>
 class BinaryShadowExpression : public core::BinaryExpression<T>  {
     public:
-        BinaryShadowExpression();
         BinaryShadowExpression(core::BinaryExpression<T>* );
         virtual ~BinaryShadowExpression();
 
@@ -18,10 +17,6 @@ class BinaryShadowExpression : public core::BinaryExpression<T>  {
     private:
         core::BinaryExpression<T>* target;
     };
-
-    template <class T>
-    BinaryShadowExpression<T>::BinaryShadowExpression()
-        : core::BinaryExpression<T>(), target(nullptr) {}
 
     template <class T>
     BinaryShadowExpression<T>::BinaryShadowExpression(core::BinaryExpression<T>* _target)
