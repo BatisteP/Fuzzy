@@ -20,7 +20,8 @@ namespace evolution {
     };
 
     template <class T>
-    UnaryShadowExpression<T>::UnaryShadowExpression() : UnaryExpression<T>() {}
+    UnaryShadowExpression<T>::UnaryShadowExpression()
+        : UnaryExpression<T>(), target(nullptr) {}
 
     template <class T>
     UnaryShadowExpression<T>::UnaryShadowExpression(UnaryExpression <T> * _target)
@@ -32,7 +33,7 @@ namespace evolution {
     template <class T>
     T UnaryShadowExpression<T>::evaluate(Expression<T> * o) {
         if (target == nullptr) {
-            throw exceptions::NullPointerException("null target");
+            throw exceptions::NullPointerException<T>("null target");
         }
 
         return target->evaluate(o);

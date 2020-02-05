@@ -10,4 +10,5 @@ namespace fuzzy {
 
     };
 }
+
 #endif // ! IS_HPP

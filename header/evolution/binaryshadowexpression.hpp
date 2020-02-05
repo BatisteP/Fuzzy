@@ -20,7 +20,8 @@ namespace evolution {
     };
 
     template <class T>
-    BinaryShadowExpression<T>::BinaryShadowExpression() : BinaryExpression<T>() {}
+    BinaryShadowExpression<T>::BinaryShadowExpression()
+        : BinaryExpression<T>(), target(nullptr) {}
 
     template <class T>
     BinaryShadowExpression<T>::BinaryShadowExpression(BinaryExpression<T>* _target)

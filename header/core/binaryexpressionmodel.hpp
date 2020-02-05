@@ -29,12 +29,12 @@ namespace core {
     BinaryExpressionModel<T>::BinaryExpressionModel() {}
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right)
-            : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(nullptr) {}
+    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* l, Expression<T>* r)
+            : Expression<T>(), BinaryExpression<T>(), _left(l), _right(r), _operator(nullptr) {}
 
     template <class T>
-    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* left, Expression<T>* right, BinaryExpression<T>* oper)
-            : Expression<T>(), BinaryExpression<T>(), _left(left), _right(right), _operator(oper) {}
+    BinaryExpressionModel<T>::BinaryExpressionModel(Expression<T>* l, Expression<T>* r, BinaryExpression<T>* o)
+            : Expression<T>(), BinaryExpression<T>(), _left(l), _right(r), _operator(o) {}
 
     template <class T>
     BinaryExpressionModel<T>::~BinaryExpressionModel() {}
@@ -57,25 +57,26 @@ namespace core {
         if (_operator == nullptr) {
             throw exceptions::NullPointerException<T>("null operator");
         }
+
         return _operator->evaluate(l, r);
     }
 
     template <class T>
-    void BinaryExpressionModel<T>::setLeft(Expression<T>* o) {
-        if (o == nullptr) {
-            throw exceptions::NullPointerException<T>("null left");
+    void BinaryExpressionModel<T>::setLeft(Expression<T>* l) {
+        if (l == nullptr) {
+            throw exceptions::NullPointerException<T>("null left operand");
         }
 
-        _left = o;
+        _left = l;
     }
 
     template <class T>
-    void BinaryExpressionModel<T>::setRight(Expression<T>* o) {
-        if (o == nullptr) {
-            throw exceptions::NullPointerException<T>("null right");
+    void BinaryExpressionModel<T>::setRight(Expression<T>* r) {
+        if (r == nullptr) {
+            throw exceptions::NullPointerException<T>("null right operand");
         }
 
-        _right = o;
+        _right = r;
     }
 
     template <class T>
