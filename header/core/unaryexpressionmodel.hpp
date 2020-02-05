@@ -36,7 +36,7 @@ namespace core {
             : Expression<T>(), UnaryExpression<T>(), _operand(operand), _operator(operators) {}
 
     template <class T>
-    UnaryExpressionModel<T>::~UnaryExpressionModel() {};
+    UnaryExpressionModel<T>::~UnaryExpressionModel() {}
 
     template <class T>
     T UnaryExpressionModel<T>::evaluate() const {
