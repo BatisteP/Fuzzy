@@ -15,46 +15,53 @@
 #include <evolution/binaryshadowexpression.hpp>
 #include <evolution/unaryshadowexpression.hpp>
 
-namespace fuzzy{
-    template <class T>
-    class FuzzyFactory: public core::ExpressionFactory<T>{
-        public:
-            FuzzyFactory(){};
-            // constructeur valué à (re)faire
-            FuzzyFactory(And<T>*, Not<T>*);
+namespace fuzzy {
+    template<class T>
+    class FuzzyFactory : public core::ExpressionFactory<T> {
+    public:
+        FuzzyFactory() {};
 
-            ~FuzzyFactory();
+        // constructeur valué à (re)faire
+        FuzzyFactory(And<T> *, Not<T> *);
 
-
-            core::Expression<T>* newAnd(core::Expression<T>*,core::Expression<T>*);
-            core::Expression<T>* newNot(core::Expression<T>*);
-            core::Expression<T>* newOr(core::Expression<T>*,core::Expression<T>*);
-            core::Expression<T>* newIs(Is<T>*,core::Expression<T>*);
-            core::Expression<T>* newThen(core::Expression<T>*, core::Expression<T>*);
-            core::Expression<T>* newAgg(core::Expression<T>*, core::Expression<T>*);
-            core::Expression<T>* newDefuzz(core::Expression<T>*, core::Expression<T>*);
-
-            void changeAnd(And<T>*);
-            void changeNot(Not<T>*);
-            void changeOr(Or<T>*);
-            void changeThen(Then<T>*);
-         // void changeDefuzz(Defuzz<T>*);
-            void changeAgg(Agg<T>*);
-
-        private:
-            evolution::BinaryShadowExpression<T> theAnd;
-            evolution::UnaryShadowExpression<T> theNot;
-            evolution::BinaryShadowExpression<T> theOr;
-            evolution::BinaryShadowExpression<T> theThen;
-            evolution::BinaryShadowExpression<T> theAgg;
-            evolution::BinaryShadowExpression<T> defuzz;
+        ~FuzzyFactory();
 
 
+        core::Expression<T> *newAnd(core::Expression<T> *, core::Expression<T> *);
+
+        core::Expression<T> *newNot(core::Expression<T> *);
+
+        core::Expression<T> *newOr(core::Expression<T> *, core::Expression<T> *);
+
+        core::Expression<T> *newIs(Is<T> *, core::Expression<T> *);
+
+        core::Expression<T> *newThen(core::Expression<T> *, core::Expression<T> *);
+
+        core::Expression<T> *newAgg(core::Expression<T> *, core::Expression<T> *);
+
+        core::Expression<T> *newDefuzz(core::Expression<T> *, core::Expression<T> *);
+
+        void changeAnd(And<T> *);
+
+        void changeNot(Not<T> *);
+
+        void changeOr(Or<T> *);
+
+        void changeThen(Then<T> *);
+
+        // void changeDefuzz(Defuzz<T>*);
+        void changeAgg(Agg<T> *);
+
+    private:
+        evolution::BinaryShadowExpression<T> theAnd;
+        evolution::UnaryShadowExpression<T> theNot;
+        evolution::BinaryShadowExpression<T> theOr;
+        evolution::BinaryShadowExpression<T> theThen;
+        evolution::BinaryShadowExpression<T> theAgg;
+        evolution::BinaryShadowExpression<T> defuzz;
 
 
-
-
-};
+    };
 
     template<class T>
     FuzzyFactory<T>::~FuzzyFactory() {
@@ -63,12 +70,12 @@ namespace fuzzy{
     }
 
     template<class T>
-    core::Expression<T> *FuzzyFactory<T>::newAnd(core::Expression<T>* left, core::Expression<T>* right) {
+    core::Expression<T> *FuzzyFactory<T>::newAnd(core::Expression<T> *left, core::Expression<T> *right) {
         return newBinary(theAnd, left, right);
     }
 
     template<class T>
-    core::Expression<T> *FuzzyFactory<T>::newNot(core::Expression<T>* exp) {
+    core::Expression<T> *FuzzyFactory<T>::newNot(core::Expression<T> *exp) {
         return newUnary(theNot, exp);
     }
 
@@ -78,7 +85,7 @@ namespace fuzzy{
     }
 
     template<class T>
-    void FuzzyFactory<T>::changeNot(Not <T>* ope) {
+    void FuzzyFactory<T>::changeNot(Not<T> *ope) {
         theNot.setTarget(ope);
     }
 
@@ -88,16 +95,13 @@ namespace fuzzy{
     }
 
     template<class T>
-    core::Expression<T> *FuzzyFactory<T>::newIs(Is<T>* is, core::Expression<T> * op) {
+    core::Expression<T> *FuzzyFactory<T>::newIs(Is<T> *is, core::Expression<T> *op) {
         return newUnary(is, op);
     }
 
     template<class T>
-    FuzzyFactory<T>::FuzzyFactory(And<T>* _and, Not<T>* _not) :
-        theAnd(_and),
-        theNot(_not),
-
-
-
+    FuzzyFactory<T>::FuzzyFactory(And<T> *_and, Not<T> *_not) :
+            theAnd(_and),
+            theNot(_not) {}
 }
 #endif //SUGENO_FUZZYFACTORY_HPP
