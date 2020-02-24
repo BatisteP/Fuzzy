@@ -9,27 +9,46 @@
 #include <core/expression.hpp>
 #include <exceptions/nullpointerexception.hpp>
 #include <vector>
+#include "naryexpression.hpp"
 
 namespace fuzzy {
     template <class T>
-    class NaryExpressionModel {
+class NaryExpressionModel :public NaryExpression<T>, public core::Expression<T>{
     public:
-        NaryExpressionModel();
-        virtual ~NaryExpressionModel();
+        NaryExpressionModel(){};
+        virtual ~NaryExpressionModel(){};
+    NaryExpressionModel(NaryExpression<T>*, std::vector<const core::Expression<T>*>* );
         T evaluate() const;
         T evaluate(std::vector<core::Expression<T>*>) const;
+    private:
+        NaryExpression<T>* ope;
+        std::vector<const core::Expression<T>*>* opeVect;
     };
 
-    template <class T>
-    NaryExpression<T>::NaryExpression() {}
+    template<class T>
+    T NaryExpressionModel<T>::evaluate() const {
+        if (opeVect->size() == 0)
+            throw new exceptions::NullPointerException<T>("opeVect empty");
 
-    template <class T>
-    NaryExpression<T>::~NaryExpression() {}
+        return Evaluate(opeVect);
+    }
 
     template<class T>
-    T NaryExpression<T>::evaluate(std::vector<core::Expression<T> *>) const {
-        return nullptr;
+    NaryExpressionModel<T>::NaryExpressionModel(NaryExpression <T> *_ope, std::vector<const core::Expression<T> *> * _opeVect) :
+            ope(_ope), opeVect(_opeVect){
+
     }
+
+    template<class T>
+    T NaryExpressionModel<T>::evaluate(std::vector<core::Expression<T> *> _opeVect) const {
+        if (_opeVect == NULL || _opeVect.size()==0)
+            throw new exceptions::NullPointerException<T>("vecteur d'operandes null ou vide");
+
+        return ope->Evaluate(_opeVect);
+    }
+
+
+
 }
 
 #endif //SUGENO_NARYEXPRESSIONMODEL_HPP
