@@ -59,5 +59,5 @@ namespace core{
     }
 }
 
-}
+
 #endif //SUGENO_EXPRESSIONFACTORY_HPP

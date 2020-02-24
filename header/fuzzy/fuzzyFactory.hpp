@@ -19,11 +19,11 @@ namespace fuzzy{
     template <class T>
     class FuzzyFactory: public core::ExpressionFactory<T>{
         public:
-            FuzzyFactory(){};
-            // constructeur valué à (re)faire
-            FuzzyFactory(And<T>*, Not<T>*);
 
-            ~FuzzyFactory();
+            // constructeur valué à (re)faire
+            FuzzyFactory(And<T>*, Not<T>*, Agg<T>*, Or<T>*);
+
+            ~FuzzyFactory(){};
 
 
             core::Expression<T>* newAnd(core::Expression<T>*,core::Expression<T>*);
@@ -38,10 +38,11 @@ namespace fuzzy{
             void changeNot(Not<T>*);
             void changeOr(Or<T>*);
             void changeThen(Then<T>*);
-         // void changeDefuzz(Defuzz<T>*);
+            void changeDefuzz(Defuzz<T>*);
             void changeAgg(Agg<T>*);
 
         private:
+
             evolution::BinaryShadowExpression<T> theAnd;
             evolution::UnaryShadowExpression<T> theNot;
             evolution::BinaryShadowExpression<T> theOr;
@@ -56,11 +57,7 @@ namespace fuzzy{
 
 };
 
-    template<class T>
-    FuzzyFactory<T>::~FuzzyFactory() {
 
-
-    }
 
     template<class T>
     core::Expression<T> *FuzzyFactory<T>::newAnd(core::Expression<T>* left, core::Expression<T>* right) {
@@ -84,7 +81,7 @@ namespace fuzzy{
 
     template<class T>
     core::Expression<T> *FuzzyFactory<T>::newOr(core::Expression<T> *left, core::Expression<T> *right) {
-        return newBinary(theAnd, left, right);
+        return newBinary(theOr, left, right);
     }
 
     template<class T>
@@ -93,11 +90,43 @@ namespace fuzzy{
     }
 
     template<class T>
-    FuzzyFactory<T>::FuzzyFactory(And<T>* _and, Not<T>* _not) :
+    FuzzyFactory<T>::FuzzyFactory(And<T> *_and, Not<T> *_not, Agg<T> *_agg, Or<T>* _or)  :
         theAnd(_and),
         theNot(_not),
+        theAgg(_agg),
+        theOr(_or)
 
 
 
-}
+    {
+
+
+    }
+
+    template<class T>
+    void FuzzyFactory<T>::changeOr(Or<T> *ope) {
+        theOr.setTarget(ope);
+    }
+
+    template<class T>
+    void FuzzyFactory<T>::changeThen(Then<T> *ope) {
+        theThen.setTarget(ope);
+    }
+
+    template<class T>
+    void FuzzyFactory<T>::changeAgg(Agg<T> *ope) {
+        theAgg.setTarget(ope);
+    }
+
+    template<class T>
+    core::Expression<T> *FuzzyFactory<T>::newThen(core::Expression<T> *left, core::Expression<T> *right) {
+        return newBinary(theThen, left, right);
+    }
+
+    template<class T>
+    core::Expression<T> *FuzzyFactory<T>::newAgg(core::Expression<T> *left, core::Expression<T> *right) {
+        return newBinary(theAgg, left, right);
+    }
+
+
 #endif //SUGENO_FUZZYFACTORY_HPP

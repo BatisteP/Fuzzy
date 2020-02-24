@@ -7,8 +7,9 @@
 
 namespace fuzzy {
     template <class T>
-    class NaryExpression {
+class NaryExpression {
     public:
+
         NaryExpression();
         virtual ~NaryExpression();
 
