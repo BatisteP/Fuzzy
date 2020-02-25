@@ -8,6 +8,7 @@
 
 #include <list>
 #include <core/valuemodel.hpp>
+#include <vector>
 
 namespace fuzzy {
     template<class T>
@@ -15,36 +16,36 @@ namespace fuzzy {
     public:
         Shape();
 
-        Shape(std::list<T> _xs, std::list<T> _ys);
+        Shape(std::vector<T> _xs, std::vector<T> _ys);
 
-        void
-        makeShape(const T &min, const T &max, const T &step, core::ValueModel<T> *value, core::Expression<T> *operat);
-
+        void makeShape(const T &min, const T &max, const T &step, core::ValueModel<T> *value, core::Expression<T> *operat);
+        std::vector<T> getXs() const;
+        std::vector<T> getYs() const;
         std::ostream &print(std::ostream &) const;
 
     private:
-        std::list<T> xs;
-        std::list<T> ys;
+        std::vector<T> xs;
+        std::vector<T> ys;
 
     };
 
     template<class T>
-    Shape<T>::Shape(std::list<T> _xs, std::list<T> _ys):
+    Shape<T>::Shape(std::vector<T> _xs, std::vector<T> _ys):
             xs(_xs), ys(_ys) {
     }
 
     template<class T>
     void Shape<T>::makeShape(const T &min, const T &max, const T &step, core::ValueModel<T> *value,
                              core::Expression<T> *operat) {
-        T mem = value->Evaluate();
+        T mem = value->evaluate();
 
         for (T i = min; i <= max; i += step) {
-            value->SetValue(i);
-            xs.add(i);
-            ys.add(operat->Evaluate());
+            value->setValue(i);
+            xs.push_back(i);
+            ys.push_back(operat->evaluate());
         }
 
-        value->SetValue(mem);
+        value->setValue(mem);
 
     }
 
@@ -57,7 +58,17 @@ namespace fuzzy {
     template<class T>
     std::ostream &Shape<T>::print(std::ostream & os) const {
         os << "todo";
+        return os;
+    }
 
+    template<class T>
+    std::vector<T> Shape<T>::getXs() const {
+        return xs;
+    }
+
+    template<class T>
+    std::vector<T> Shape<T>::getYs() const{
+       return ys;
     }
 }
 #endif //SUGENO_SHAPE_HPP

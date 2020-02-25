@@ -11,7 +11,7 @@ namespace evolution {
         UnaryShadowExpression(core::UnaryExpression<T>*);
         virtual ~UnaryShadowExpression();
 
-        virtual T evaluate(core::Expression<T>*);
+        virtual T evaluate(core::Expression<T>*) const;
         virtual void setTarget(core::UnaryExpression<T>*);
 
     private:
@@ -26,7 +26,7 @@ namespace evolution {
     UnaryShadowExpression<T>::~UnaryShadowExpression() {}
 
     template <class T>
-    T UnaryShadowExpression<T>::evaluate(core::Expression<T> * o) {
+    T UnaryShadowExpression<T>::evaluate(core::Expression<T> * o) const{
         if (target == nullptr) {
             throw exceptions::NullPointerException<T>("null target");
         }

@@ -16,16 +16,17 @@ namespace core{
         typedef typename e_list::iterator iterator;
         ExpressionFactory(){};
         ~ExpressionFactory();
-        UnaryExpressionModel<T>* NewUnary(UnaryExpression<T>*, Expression<T>*);
-        BinaryExpressionModel<T>* NewBinary(BinaryExpression<T>*, Expression<T>*,Expression<T>*);
-        Expression<T>* Hold(Expression<T>*);
+        UnaryExpressionModel<T>* newUnary(UnaryExpression<T>*, Expression<T>*);
+        BinaryExpressionModel<T>* newBinary(BinaryExpression<T>*, Expression<T>*,Expression<T>*);
+        Expression<T>* hold(Expression<T>*);
     private:
         e_list memory;
     };
 
     template<class T>
-    Expression<T> *ExpressionFactory<T>::Hold(Expression<T> * exp) {
-       memory.insert(exp);
+    Expression<T> *ExpressionFactory<T>::hold(Expression<T> * exp) {
+       memory.push_back(exp);
+       return exp;
     }
 
 
@@ -40,21 +41,21 @@ namespace core{
             std::cout << "objet detruit";
         }
         memory.clear();
-        delete memory;
+
 
     }
 
     template<class T>
-    BinaryExpressionModel<T>* ExpressionFactory<T>::NewBinary(BinaryExpression<T>* ope, Expression<T>* left,Expression<T>* right) {
-        BinaryExpressionModel<T> obj = new BinaryExpressionModel<T>(ope,left, right);
-        Hold(obj);
+    BinaryExpressionModel<T>* ExpressionFactory<T>::newBinary(BinaryExpression<T>* ope, Expression<T>* left,Expression<T>* right) {
+        BinaryExpressionModel<T>* obj = new BinaryExpressionModel<T>(left, right, ope);
+        hold(obj);
         return obj;
     }
 
     template<class T>
-    UnaryExpressionModel<T>* ExpressionFactory<T>::NewUnary(UnaryExpression<T>* ope, Expression<T>* o) {
-        UnaryExpressionModel<T> obj = new UnaryExpressionModel<T>(ope, o);
-        Hold(obj);
+    UnaryExpressionModel<T>* ExpressionFactory<T>::newUnary(UnaryExpression<T>* ope, Expression<T>* o) {
+        UnaryExpressionModel<T>* obj = new UnaryExpressionModel<T>(o, ope);
+        hold(obj);
         return obj;
     }
 }

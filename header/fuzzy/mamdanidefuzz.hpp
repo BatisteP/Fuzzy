@@ -14,46 +14,44 @@ namespace fuzzy {
     class MamdaniDefuzz : public core::BinaryExpression<T> {
     public:
 
-
+        MamdaniDefuzz(){};
         MamdaniDefuzz(const T &_min, const T &_max, const T &_step);
 
         ~MamdaniDefuzz() {};
 
-        void SetMin(const T &_min);
+        void setMin(const T &_min);
 
-        void SetMax(const T &_max);
+        void setMax(const T &_max);
 
-        void SetStep(const T &_step);
+        void setStep(const T &_step);
 
-        virtual T Evaluate(core::Expression<T> *, core::Expression<T> *) const;
-
-    protected:
-        virtual T Defuzz(const Shape<T> &) const = 0;
+         T evaluate(core::Expression<T> *, core::Expression<T> *) const;
+         virtual T defuzz(const Shape<T> &) const = 0;
 
     private:
         T min, max, step;
     };
 
     template<class T>
-    void MamdaniDefuzz<T>::SetMin(const T &_min) {
-        min = _min
+    void MamdaniDefuzz<T>::setMin(const T &_min) {
+        min = _min;
     }
 
     template<class T>
-    void MamdaniDefuzz<T>::SetMax(const T &_max) {
+    void MamdaniDefuzz<T>::setMax(const T &_max) {
         max = _max;
     }
 
     template<class T>
-    void MamdaniDefuzz<T>::SetStep(const T &_step) {
+    void MamdaniDefuzz<T>::setStep(const T &_step) {
         step = _step;
     }
 
     template<class T>
-    T MamdaniDefuzz<T>::Evaluate(core::Expression<T> *value, core::Expression<T> *operat) const {
+    T MamdaniDefuzz<T>::evaluate(core::Expression<T> *value, core::Expression<T> *operat) const {
         Shape<T> s;
         s.makeShape(min, max, step, (core::ValueModel<T> *) value, operat);
-        return Defuzz(s);
+        return defuzz(s);
     }
 
     template<class T>

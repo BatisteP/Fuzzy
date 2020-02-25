@@ -13,8 +13,9 @@ class BinaryShadowExpression : public core::BinaryExpression<T>  {
 
         virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
         virtual void setTarget(core::BinaryExpression<T>* );
+        core::BinaryExpression<T>* getTarget();
 
-    private:
+private:
         core::BinaryExpression<T>* target;
     };
 
@@ -41,6 +42,11 @@ class BinaryShadowExpression : public core::BinaryExpression<T>  {
         }
 
         target = o;
+    }
+
+    template<class T>
+    core::BinaryExpression<T> *BinaryShadowExpression<T>::getTarget() {
+        return target;
     }
 }
 
