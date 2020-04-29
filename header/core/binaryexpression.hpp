@@ -15,6 +15,7 @@ namespace core {
         virtual T evaluate(Expression<T>*, Expression<T>*) const = 0;
     };
 
+
     template <class T>
     BinaryExpression<T>::BinaryExpression() {}
 
