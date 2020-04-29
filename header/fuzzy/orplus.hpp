@@ -24,8 +24,8 @@ namespace fuzzy {
         T lvalue = l->evaluate();
         T rvalue = r->evaluate();
 
-        // TODO : L ORPLUS R =  L + R - (R * L)
-        return (lvalue + rvalue - (lvalue * rvalue));
+        // TODO : L ORPLUS R =  L + R  si L + R < 1 , 1 sinon
+        return (lvalue + rvalue > 1) ? 1: lvalue + rvalue;
     }
 }
 

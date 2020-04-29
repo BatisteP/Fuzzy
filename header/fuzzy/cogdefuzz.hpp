@@ -17,11 +17,9 @@ namespace fuzzy {
 
     template<class T>
     T CogDefuzz<T>::defuzz(const Shape<T> &s) const {
-        // todo renvoie le barycentre/ centre de gravité de la shape
         std::vector<T> xs =  s.getXs();
         std::vector<T> ys = s.getYs();
-
-
+        //s.print(std::cout);
         //valeur du barycentre = (sum (xs * ys))/(sum ys) (cf wikipédia)
         float sumxsys = 0;
         float sumys = 0;

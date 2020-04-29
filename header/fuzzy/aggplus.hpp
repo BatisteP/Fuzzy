@@ -24,8 +24,8 @@ namespace fuzzy {
         T lvalue = l -> evaluate();
         T rvalue = r -> evaluate();
 
-        // TODO : L AGGPLUS R = L + R - (L * R)
-        return (lvalue + rvalue - (lvalue * rvalue));
+        // TODO : L AGGPLUS R = L + R
+        return (lvalue + rvalue);
     }
 }
 

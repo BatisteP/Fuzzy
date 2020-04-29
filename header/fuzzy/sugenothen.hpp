@@ -9,11 +9,11 @@ namespace fuzzy {
     class SugenoThen : public Then<T> {
     public:
         virtual T evaluate(core::Expression<T>*, core::Expression<T>* ) const;
-        virtual T premiseValue() const;
+        virtual T getPremiseValue() const;
         virtual void setPremiseValue(T);
 
-    private:
-        T premiseValue;
+    public:
+       mutable   T premiseValue;
     };
 
     template <class T>
@@ -26,15 +26,15 @@ namespace fuzzy {
             throw exceptions::NullPointerException<T>("null right operand");
         }
 
-        T lvalue = l->evaluate();
+        premiseValue = l->evaluate() ;
         T rvalue = r->evaluate();
 
-        // TODO : L SUGENOTHEN R = ?
-        return null;
+        // TODO : L SUGENOTHEN R = L * R
+        return premiseValue * rvalue;
     }
 
     template <class T>
-    T SugenoThen<T>::premiseValue() const {
+    T SugenoThen<T>::getPremiseValue() const {
         return premiseValue;
     }
 

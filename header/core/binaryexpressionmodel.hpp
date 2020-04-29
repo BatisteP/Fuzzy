@@ -16,7 +16,7 @@ namespace core {
         virtual void setLeft(Expression<T>* );
         virtual void setRight(Expression<T>* );
         virtual void setOperator(BinaryExpression<T>* );
-
+        virtual BinaryExpression<T>* getOperateur();
     private:
         Expression<T>* _left;
         Expression<T>* _right;
@@ -77,6 +77,11 @@ namespace core {
         }
 
         _operator = o;
+    }
+
+    template<class T>
+    BinaryExpression<T> *BinaryExpressionModel<T>::getOperateur() {
+        return _operator;
     }
 }
 

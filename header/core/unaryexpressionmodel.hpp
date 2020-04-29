@@ -34,7 +34,7 @@ namespace core {
             throw exceptions::NullPointerException<T>("null operand");
         }
 
-        return _operand->evaluate();
+        return evaluate(_operand);
     }
 
     template <class T>

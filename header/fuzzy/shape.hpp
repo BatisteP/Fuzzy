@@ -54,11 +54,21 @@ namespace fuzzy {
     Shape<T>::Shape() {
 
     }
-        // todo trouver systeme pour afficher la shape (list de x et y)
+        // todo trouver systeme pour afficher la shape (vect  de x et y)
     template<class T>
     std::ostream &Shape<T>::print(std::ostream & os) const {
-        os << "todo";
-        return os;
+            os << '[';
+            typename std::vector<T>::const_iterator it= xs.begin();
+            for(; it!=xs.end(); ++it)
+                os << *it << ' ';
+            os << ']';
+            os << std::endl;
+            os << '[';
+            it = ys.begin();
+            for(; it!=ys.end(); ++it)
+                os << *it << ' ';
+            os << ']';
+            return os;
     }
 
     template<class T>
