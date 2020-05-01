@@ -216,11 +216,73 @@ void testSugenoDefuzz(){
         std::cout << "tips -> " << system->evaluate() << std::endl;
     }
 }
+
+
+void testMamdaniProf(){
+    fuzzy::NotMinus<float>         opNot;
+    fuzzy::AndMin<float>           opAnd;
+    fuzzy::OrMax<float>            opOr;
+    fuzzy::SugenoThen<float>          opThen;
+    fuzzy::AggPlus<float>          opAgg;
+    fuzzy::CogDefuzz<float> opCogDefuzz;
+
+    //fuzzy factory
+    fuzzy::FuzzyFactory<float> f(&opAnd,&opNot, &opAgg,&opOr,&opThen,&opCogDefuzz);
+
+    fuzzy::IsTriangle<float> poor(-5,0,5);
+    fuzzy::IsTriangle<float> good(0,5,10);
+    fuzzy::IsTriangle<float> excellent(5,10,15);
+
+    fuzzy::IsTriangle<float> cheap(0,5,10);
+    fuzzy::IsTriangle<float> average(10,15,20);
+    fuzzy::IsTriangle<float> generous(20,25,30);
+
+    core::ValueModel<float> service(0);
+    core::ValueModel<float> food(0);
+    core::ValueModel<float> tips(0);
+    core::Expression<float> *r =
+            f.newAgg(
+                    f.newAgg(
+                            f.newThen(
+                                    f.newIs(&service, &poor),
+                                    f.newIs(&tips, &cheap)
+                            ),
+                            f.newThen(
+                                    f.newIs( &service,&good),
+                                    f.newIs(&tips,&average)
+                            )
+                    ),
+                    f.newThen(
+                                    f.newIs(&service,&excellent),
+                                    f.newIs(&tips,&generous)
+                    )
+            );
+    //defuzzification
+    core::Expression<float> *system = f.newDefuzz(&tips, r, 0, 25, 1);
+
+    //apply input
+    float serviceF, foodF;
+
+    while (true)
+    {
+        std::cout << "service : ";
+        std::cin >> serviceF;
+        service.setValue(serviceF);
+        std::cout << "food : ";
+        std::cin >> foodF;
+        food.setValue(foodF);
+        std::cout << "tips -> " << system->evaluate() << std::endl;
+    }
+
+
+}
+
 int main() {
     testingOperators();
     std::cout << "unitary testing of the operators done" << std::endl;
-    testSugenoDefuzz();
+    //testSugenoDefuzz();
     //testingFactoryMamdani();
+    testMamdaniProf();
 
     /*
     core::ValueModel<float> v1;
