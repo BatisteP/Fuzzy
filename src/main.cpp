@@ -89,29 +89,45 @@ void testingFactoryMamdani (){
     fuzzy::FuzzyFactory<float> f(&opAnd,&opNot,&opAgg,&opOr,&opThen,&opDefuzz);
 
 
-
+    std::ofstream myfile;
     //functions
     //service
-    fuzzy::IsGaussian<float> poor(0,1.5);
-
-    fuzzy::IsGaussian<float> good(5,1.5);
-
-    fuzzy::IsGaussian<float> excellent(10,1.5);
+    fuzzy::IsGaussian<float> poor(0,1.6);
+    myfile.open ("poorGaussian.csv");
+    poor.PrintOn(myfile);
+    myfile.close();
+    fuzzy::IsGaussian<float> good(5,1.6);
+    myfile.open ("goodGaussian.csv");
+    good.PrintOn(myfile);
+    myfile.close();
+    fuzzy::IsGaussian<float> excellent(10,1.6);
+    myfile.open ("excellentGaussian.csv");
+    excellent.PrintOn(myfile);
+    myfile.close();
 
     //food
+    myfile.open ("rancid.csv");
     fuzzy::IsTrapezoidalRight<float> rancid(1,4);
+    rancid.PrintOn(myfile);
+    myfile.close();
 
+    myfile.open ("delicious.csv");
     fuzzy::IsTrapezoidalLeft<float> delicious(6,9);
-
+    delicious.PrintOn(myfile);
+    myfile.close();
     //tips
-    std::ofstream myfile;
     myfile.open ("cheap.csv");
     fuzzy::IsTriangle<float> cheap(0,5,10);
     cheap.PrintOn(myfile);
     myfile.close();
     fuzzy::IsTriangle<float> average(10,15,20);
+    myfile.open ("average.csv");
+    average.PrintOn(myfile);
+    myfile.close();
     fuzzy::IsTriangle<float> generous(16,21,26);
-
+    myfile.open ("generous.csv");
+    generous.PrintOn(myfile);
+    myfile.close();
     //values
     core::ValueModel<float> service(0);
     core::ValueModel<float> food(0);

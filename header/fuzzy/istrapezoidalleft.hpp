@@ -11,7 +11,7 @@ namespace fuzzy {
     public:
         IsTrapezoidalLeft(T, T);
         virtual ~IsTrapezoidalLeft();
-
+        virtual std::ostream &PrintOn(std::ostream &) const;
         virtual T evaluate(core::Expression<T>*) const;
         virtual void setMidLeft(T);
         virtual void setMin(T);
@@ -66,6 +66,19 @@ namespace fuzzy {
 
         // TODO : if (x >= a) and (x <= b)
         return ((xValue >= min && xValue <= midLeft) ? ((xValue - min) / (midLeft - min)) : 0);
+    }
+
+    template<class T>
+    std::ostream &IsTrapezoidalLeft<T>::PrintOn(std::ostream &os ) const {
+        T xmin = 0.0;
+        T xmax = 10.0;
+        os << 'x' << ','<<'y'<<std::endl;
+        for (T i = xmin; i < xmax; i = i + 0.1){
+            core::ValueModel<T> a = core::ValueModel<T>(i);
+            os << i <<','<< evaluate(&a);
+            os << std::endl;
+        }
+        return os;
     }
 }
 
