@@ -10,6 +10,9 @@
 #include <fuzzy/andmin.hpp>
 #include <fuzzy/andmult.hpp>
 #include <fuzzy/istriangle.hpp>
+#include <fuzzy/istrapezoidalleft.hpp>
+#include <fuzzy/isgaussian.hpp>
+#include <fuzzy/istrapezoidalright.hpp>
 #include <fuzzy/notminus1.hpp>
 #include <fuzzy/notminus.hpp>
 #include <fuzzy/ormax.hpp>
@@ -84,24 +87,30 @@ void testingFactoryMamdani (){
 
     //fuzzy factory
     fuzzy::FuzzyFactory<float> f(&opAnd,&opNot,&opAgg,&opOr,&opThen,&opDefuzz);
-    std::ofstream myfile;
-    myfile.open ("poor.csv");
+
 
 
     //functions
     //service
-    fuzzy::IsTriangle<float> poor(-5,0,5);
-    poor.PrintOn(myfile);
-    myfile.close();
-    fuzzy::IsTriangle<float> good(0,5,10);
-    fuzzy::IsTriangle<float> excellent(5,10,15);
+    fuzzy::IsGaussian<float> poor(0,1.5);
+
+    fuzzy::IsGaussian<float> good(5,1.5);
+
+    fuzzy::IsGaussian<float> excellent(10,1.5);
+
     //food
-    fuzzy::IsTriangle<float> rancid(-5,0,5);
-    fuzzy::IsTriangle<float> delicious(5,10,15);
+    fuzzy::IsTrapezoidalRight<float> rancid(1,4);
+
+    fuzzy::IsTrapezoidalLeft<float> delicious(6,9);
+
     //tips
+    std::ofstream myfile;
+    myfile.open ("cheap.csv");
     fuzzy::IsTriangle<float> cheap(0,5,10);
+    cheap.PrintOn(myfile);
+    myfile.close();
     fuzzy::IsTriangle<float> average(10,15,20);
-    fuzzy::IsTriangle<float> generous(20,25,30);
+    fuzzy::IsTriangle<float> generous(16,21,26);
 
     //values
     core::ValueModel<float> service(0);
@@ -131,7 +140,7 @@ void testingFactoryMamdani (){
                     )
             );
     //defuzzification
-    core::Expression<float> *system = f.newDefuzz(&tips, r, 0, 25, 1);
+    core::Expression<float> *system = f.newDefuzz(&tips, r, 0, 26, 0.1);
 
     //apply input
     float serviceF, foodF;
@@ -174,7 +183,7 @@ void testSugenoDefuzz(){
     fuzzy::IsTriangle<float> good(0,5,10);
     fuzzy::IsTriangle<float> excellent(5,10,15);
 
-    fuzzy::IsTriangle<float> rancid(-5,0,5);
+    fuzzy::IsTrapezoidalRight<float> rancid(1,4);
     fuzzy::IsTriangle<float> delicious(5,10,15);
 
     core::ValueModel<float> service(0);

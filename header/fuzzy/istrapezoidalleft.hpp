@@ -17,8 +17,9 @@ namespace fuzzy {
         virtual void setMin(T);
 
     private:
-        T midLeft;
         T min;
+        T midLeft;
+
     };
 
     template <class T>

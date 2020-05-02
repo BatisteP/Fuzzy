@@ -10,11 +10,11 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt . show ( )
 
-dfpoor = pd.read_csv ('../../bin/poor.csv ', header =0)
+dfpoor = pd.read_csv ('../../bin/cheap.csv ', header =0)
 print (dfpoor)
 x,y= dfpoor.iloc[:,0],dfpoor.iloc[:,1]
 plt . scatter (x, y , cmap ='rainbow')
-plt.title("service : poor")
+plt.title("service : cheap")
 plt.xlabel('x')
 plt.ylabel('y')
 plt . show ( )
