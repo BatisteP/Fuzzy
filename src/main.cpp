@@ -278,7 +278,7 @@ void testMamdaniProf(){
 }
 
 int main() {
-    testingOperators();
+    //testingOperators();
     std::cout << "unitary testing of the operators done" << std::endl;
     //testSugenoDefuzz();
     //testingFactoryMamdani();
