@@ -22,10 +22,11 @@ namespace fuzzy {
         std::vector<T> getXs() const;
         std::vector<T> getYs() const;
         std::ostream &print(std::ostream &) const;
-
+        std::ostream &PrintOn(std::ostream &) const;
     private:
         std::vector<T> xs;
         std::vector<T> ys;
+
 
     };
 
@@ -53,6 +54,17 @@ namespace fuzzy {
     template<class T>
     Shape<T>::Shape() {
 
+    }
+    template<class T>
+    std::ostream &Shape<T>::PrintOn(std::ostream & os) const {
+        typename std::vector<T>::const_iterator itx= xs.begin();
+        typename std::vector<T>::const_iterator ity= ys.begin();
+        os << 'x' << ','<<'y'<<std::endl;
+        for (; itx != xs.end(); ++itx) {
+            os << *itx << ',' << *ity << std::endl;
+            ++ity;
+        }
+        return os;
     }
         // todo trouver systeme pour afficher la shape (vect  de x et y)
     template<class T>

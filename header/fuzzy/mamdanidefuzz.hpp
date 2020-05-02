@@ -4,7 +4,8 @@
 
 #ifndef SUGENO_MAMDANIDEFUZZ_HPP
 #define SUGENO_MAMDANIDEFUZZ_HPP
-
+#include <iostream>
+#include <fstream>
 #include <core/expression.hpp>
 #include <core/valuemodel.hpp>
 #include "shape.hpp"
@@ -50,7 +51,11 @@ namespace fuzzy {
     template<class T>
     T MamdaniDefuzz<T>::evaluate(core::Expression<T> *value, core::Expression<T> *operat) const {
         Shape<T> s;
+        std::ofstream myfile;
+        myfile.open ("mamdaniResult.csv");
         s.makeShape(min, max, step, (core::ValueModel<T> *) value, operat);
+        s.PrintOn(myfile);
+        myfile.close();
         return defuzz(s);
     }
 

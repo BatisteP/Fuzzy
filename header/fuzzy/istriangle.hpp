@@ -4,18 +4,19 @@
 #include <core/expression.hpp>
 #include <exceptions/triangleexception.hpp>
 #include <fuzzy/is.hpp>
-
+#include <core/valuemodel.hpp>
 namespace fuzzy {
     template <class T>
     class IsTriangle : public Is<T> {
     public:
         IsTriangle(T , T , T );
         virtual ~IsTriangle();
-
+        virtual std::ostream &PrintOn(std::ostream &) const;
         virtual T evaluate(core::Expression<T>*) const;
         virtual void setMin(T);
         virtual void setMid(T);
         virtual void setMax(T);
+
 
     private:
         T min;
@@ -45,6 +46,10 @@ namespace fuzzy {
         max = _max;
     }
 
+
+
+
+
     template <class T>
     T IsTriangle<T>::evaluate(core::Expression<T>* o) const {
         // TODO : if operand is a null pointer launch exception
@@ -72,6 +77,19 @@ namespace fuzzy {
 
         // TODO : if (x > m) and (x < b)
         return ((xValue > mid && xValue < max) ? ((max - xValue) / (max - mid)) : 0);
+    }
+
+    template<class T>
+    std::ostream &IsTriangle<T>::PrintOn(std::ostream & os) const {
+        T xmin = min;
+        T xmax = max;
+        os << 'x' << ','<<'y'<<std::endl;
+        for (T i = xmin; i < xmax; i = i +1){
+            core::ValueModel<T> a = core::ValueModel<T>(i);
+            os << i <<','<< evaluate(&a);
+            os << std::endl;
+        }
+        return os;
     }
 }
 

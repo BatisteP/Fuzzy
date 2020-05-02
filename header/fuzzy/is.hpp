@@ -7,7 +7,7 @@
 namespace fuzzy {
     template <class T>
     class Is : public core::UnaryExpression<T> {
-
+        virtual std::ostream &PrintOn(std::ostream &) const=0;
     };
 }
 
