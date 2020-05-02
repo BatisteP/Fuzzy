@@ -13,6 +13,9 @@ project("sugeno")
 # Define program name
 set(FRAMEWORK_PROG_NAME sugeno)
 
+# Adding dependency to google test framework
+add_subdirectory(Google_tests)
+
 # Check operating system
 if(UNIX)
     if (CMAKE_COMPILER_IS_GNUCC)
@@ -109,4 +112,4 @@ endif("${FRAMEWORK_SRCS}" STREQUAL "")
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Adding executable
-add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS} header/core/expressionFactory.hpp header/fuzzy/fuzzyFactory.hpp header/fuzzy/not.hpp header/core/naryexpressionmodel.hpp header/fuzzy/shape.hpp header/fuzzy/mamdanidefuzz.hpp header/fuzzy/cogdefuzz.hpp header/fuzzy/sugenoconclusion.hpp)
+add_executable(${FRAMEWORK_PROG_NAME} ${FRAMEWORK_SRCS} header/core/expressionFactory.hpp header/fuzzy/fuzzyFactory.hpp header/fuzzy/not.hpp header/core/naryexpressionmodel.hpp header/fuzzy/shape.hpp header/fuzzy/mamdanidefuzz.hpp header/fuzzy/cogdefuzz.hpp header/fuzzy/sugenoconclusion.hpp Google_tests/Unitest.cpp)
